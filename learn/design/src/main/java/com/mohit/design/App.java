@@ -1,4 +1,4 @@
-package com.mohit.models;
+package com.mohit.design;
 
 /**
  * Hello world!
