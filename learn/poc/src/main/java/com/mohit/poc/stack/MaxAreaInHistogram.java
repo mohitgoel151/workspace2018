@@ -13,19 +13,19 @@ public class MaxAreaInHistogram {
     public void test() {
         List<Point> pointsList = new ArrayList<>();
 
-        pointsList.add(new Point(0, 0));
-        pointsList.add(new Point(1, 2));
-        pointsList.add(new Point(2, 3));
-        pointsList.add(new Point(3, 4));
-        pointsList.add(new Point(4, 3));
-        pointsList.add(new Point(5, 1));
-        pointsList.add(new Point(6, 0));
-
-        pointsList.add(new Point(7, 5));
-        pointsList.add(new Point(8, 5));
-        pointsList.add(new Point(9, 0));
-
-        Assert.assertEquals(10, getMaxHistogramArea(pointsList));
+        pointsList.add(new Point(0, 6));
+        pointsList.add(new Point(1, 5));
+//        pointsList.add(new Point(2, 3));
+//        pointsList.add(new Point(3, 4));
+//        pointsList.add(new Point(4, 3));
+//        pointsList.add(new Point(5, 1));
+//        pointsList.add(new Point(6, 0));
+//
+//        pointsList.add(new Point(7, 5));
+//        pointsList.add(new Point(8, 5));
+//        pointsList.add(new Point(9, 0));
+          System.out.println(getMaxHistogramArea(pointsList));
+//        Assert.assertEquals(10, getMaxHistogramArea(pointsList));
 
     }
 
