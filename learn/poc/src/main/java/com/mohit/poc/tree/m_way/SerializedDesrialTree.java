@@ -17,7 +17,6 @@ public class SerializedDesrialTree {
         String serializedValue2 = serialize(deserialRootNode);
         System.out.println(serializedValue2);
         
-        
     }
     
     private String serialize(MWayTreeNode root) {
@@ -45,7 +44,6 @@ public class SerializedDesrialTree {
     }
     
     private MWayTreeNode deserialize(String input) {
-        
         //validation
         
         int index = 0;

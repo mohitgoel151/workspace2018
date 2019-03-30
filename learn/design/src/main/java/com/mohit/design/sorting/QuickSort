@@ -1,0 +1,24 @@
+Quick Sort
+
+
+	Divide & Conqour Approach
+	
+	Avg/Best Case Time Complexity = O(nlogn)
+	Worst Case Time Complexity = O(n*n)
+	Space Complexity = O(1)
+	
+
+	if( start < end ) {
+        //stores the position of pivot element
+         int piv_pos = partition (A,start , end ) ;     
+         quick_sort (A,start , piv_pos -1);    //sorts the left side of pivot.
+         quick_sort ( A,piv_pos +1 , end) ; //sorts the right side of pivot.
+   }
+   
+   
+   
+Pros :
+	#
+	
+Cons :
+	#

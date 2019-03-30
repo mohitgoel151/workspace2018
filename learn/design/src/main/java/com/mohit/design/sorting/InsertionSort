@@ -1,0 +1,14 @@
+Insertion Sort 
+
+	
+	Time Complexity = O(n*n)
+	
+Pros :
+	# For small data
+	# In place sorting (no extra space required)
+	# Stable Sorting
+	# Also suitable for linked list
+	
+Cons :
+	# 
+	# 

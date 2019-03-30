@@ -9,7 +9,9 @@ public class ArrayMain {
         
 //        TrappingRainWater obj = new TrappingRainWater();
         
-        TrappingRainWater2D obj = new TrappingRainWater2D();
+//        TrappingRainWater2D obj = new TrappingRainWater2D();
+        
+        AlternateGreaterSmall obj = new AlternateGreaterSmall();
         
         obj.execute();
 

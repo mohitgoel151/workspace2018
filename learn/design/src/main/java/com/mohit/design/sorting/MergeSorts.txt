@@ -1,0 +1,28 @@
+Merge Sort 
+
+	Divide & Conqour Approach
+	Time Complexity = O(nlogn)
+	Space Complexity = (n + log n) (log n for stacker)
+	
+	
+	if( start < end ) {
+           int mid = (start + end ) / 2 ;           // defines the current array in 2 parts .
+           merge_sort (A, start , mid ) ;                 // sort the 1st part of array .
+           merge_sort (A,mid+1 , end ) ;              // sort the 2nd part of array.
+
+         // merge the both parts by comparing elements of both the parts.
+          merge(A,start , mid , end );
+     }
+	
+Pros :
+	# For very very large data set.
+	# Sorting of linked list
+	# External Sorting (Large files)
+	# Stable Sorting
+	
+Cons :
+	# Need extra space (NOT in-place sorting technique)
+	# Not suitable for small size data (size <= 15) (because of recursion). (For small count of elements we use "Insertion sort" because that is also stable sort)
+	# Recursive (stack memory) (log n depth of stack size)
+
+

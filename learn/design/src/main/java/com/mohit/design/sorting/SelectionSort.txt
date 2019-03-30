@@ -1,0 +1,15 @@
+Selection Sort
+	finding the minimum or maximum element in an unsorted array and then putting it in its correct position in a sorted array.
+	
+	Time Complexity = O(n*n)
+	
+	for(int i = 0; i < n-1 ; i++)
+		for(int j = i+1; j < n ; j++ )
+			if(A[ j ] < A[ minimum ]) => SWAP
+			
+Pros :
+	# 
+	
+Cons :
+	# 
+	# 
