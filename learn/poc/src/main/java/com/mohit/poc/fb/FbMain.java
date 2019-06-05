@@ -5,7 +5,7 @@ public class FbMain {
 	public static void main(String[] args) {
 		
 		FbStringSum stringSum = new FbStringSum();
-//		stringSum.execute();
+		stringSum.execute();
 		
 		FbSubMatrixSum matrix = new FbSubMatrixSum();
 //		matrix.execute();
@@ -14,7 +14,7 @@ public class FbMain {
 //		window.execute();
 		
 		FbMinWeightPath path = new FbMinWeightPath();
-		path.execute();
+//		path.execute();
 		
 	}
 
