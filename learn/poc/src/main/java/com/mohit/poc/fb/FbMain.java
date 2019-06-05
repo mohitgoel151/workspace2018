@@ -8,11 +8,13 @@ public class FbMain {
 //		stringSum.execute();
 		
 		FbSubMatrixSum matrix = new FbSubMatrixSum();
-		matrix.execute();
+//		matrix.execute();
 		
 		FbSlidingWindow window = new FbSlidingWindow();
-		window.execute();
+//		window.execute();
 		
+		FbMinWeightPath path = new FbMinWeightPath();
+		path.execute();
 		
 	}
 
