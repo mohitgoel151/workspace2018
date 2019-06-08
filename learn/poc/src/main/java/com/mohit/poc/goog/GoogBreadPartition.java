@@ -27,20 +27,20 @@ public class GoogBreadPartition {
 	public void execute() {
 		
 		System.out.println("5 3 6 2 7 4 8 1 ************");
-		printInOrder(8);
+		createTreeAndPrintInOrder(8);
 		
 		System.out.println();
 		System.out.println("3 2 4 1  ************");
-		printInOrder(4);
+		createTreeAndPrintInOrder(4);
 		
 		System.out.println();
 		System.out.println("5 3 6 2 4 1  **************");
-		printInOrder(6);
+		createTreeAndPrintInOrder(6);
 		
 		
 	}
 
-	private void printInOrder(int count) {
+	private void createTreeAndPrintInOrder(int count) {
 		
 		int num = 0;
 		
@@ -65,7 +65,6 @@ public class GoogBreadPartition {
 		}
 		
 		printTree(root);
-		
 		
 	}
 	

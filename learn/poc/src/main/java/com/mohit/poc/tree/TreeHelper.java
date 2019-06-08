@@ -1,5 +1,6 @@
 package com.mohit.poc.tree;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -19,6 +20,11 @@ public final class TreeHelper {
             return 0;
         }
         return 1 + Math.max(getDepthOfTree(node.getLeftNode()), getDepthOfTree(node.getRightNode()));
+    }
+    
+    public static TNode createBalanceBinarySearchree() {
+        List<Integer> values = Arrays.asList(50,25,75,12,37,67,87,6,18,3,21);
+        return TreeHelper.createBST(values);
     }
 
     public static TNode createBST(List<Integer> values) {
