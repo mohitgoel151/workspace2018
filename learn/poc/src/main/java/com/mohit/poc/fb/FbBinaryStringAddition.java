@@ -1,8 +1,8 @@
-package com.mohit.poc.misc;
+package com.mohit.poc.fb;
 
 import static org.junit.Assert.*;
 
-public class BinaryStringAddition {
+public class FbBinaryStringAddition {
 
     public void execute() {
         assertEquals(getSum("1111", "111"), "10110");

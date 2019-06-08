@@ -11,7 +11,9 @@ public class ArrayMain {
         
 //        TrappingRainWater2D obj = new TrappingRainWater2D();
         
-        AlternateGreaterSmall obj = new AlternateGreaterSmall();
+//        AlternateGreaterSmall obj = new AlternateGreaterSmall();
+        
+        DuplicatesInArray obj = new DuplicatesInArray();
         
         obj.execute();
 
