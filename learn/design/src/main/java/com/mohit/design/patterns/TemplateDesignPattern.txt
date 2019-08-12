@@ -1,0 +1,112 @@
+https://dzone.com/articles/design-patterns-template-method
+
+behavioural pattern
+
+used to manage algorithms, relationships and responsibilities between objects
+
+Defines the skeleton of an algorithm in a method, deferring some steps to subclasses. 
+Template Method lets subclasses redefine certain steps of an algorithm without changing 
+the algorithms structure.
+
+
+The AbstractClass contains the templateMethod(), which should be made final so that it cannot be overridden. 
+This template method makes use of other operations available in order to run the algorithm, but is decoupled for 
+the actual implementation of these methods. All operations used by this template method are made abstract, 
+so their implementation is deferred to subclasses.
+
+The ConcreteClass implements all the operations required by the templateMethod that were defined 
+as abstract in the parent class. There can be many different ConcreteClasses. 
+
+The Template Method pattern makes use of the Hollywood Principle: Don't call us, we'll call you. 
+The template method in the parent class controls the overall process, "calling" subclass methods when necessary. 
+The Hollywood principle avoids low level components depending on high level components, and instead give these 
+low level classes (ConcreteClass) a way of hooking into the parent class (AbstractClass). 
+
+When broken down, there are four different types of methods used in the parent class: 
+    Concrete methodsStandard complete methods that are useful to the subclasses. These methods are usually utiity methods.
+    Abstract methodsMethods containing no implementation that must be implemented in subclasses.
+    Hook methodsMethods containing a default implementation that may be overidden in some classes. Hook methods are intended to be overridden, concrete methods are not.
+    Template methodsA method that calls any of the methods listed above in order to describe the algorithm without needing to implement the details. 
+
+
+When Would I Use This Pattern?
+
+The Template Method pattern is used when 
+
+    When behaviour of an algorithm can vary, you let subclasses implement the behaviour through overriding
+    You want to avoid code duplication, implementing variations of the algorithm in subclasses
+    You want to control the point that subclassing is allowed. 
+
+Template Method may not be an obvious choice in the beginning, but the usual sign that you should use the pattern 
+is when you find that you have two almost identical classes working on some logic. At that stage, you should consider 
+the power of the template method pattern to clean up your code.
+
+As you can imagine, use of the Template Method is fairly common. You'll find it used in the Arrays class uses it for 
+sorting. JFrame uses update() as a template method, subclasses of the JFrame use paint(Graphics g) as their hook method. 
+
+
+public abstract class CrossCompiler {
+
+  public final void crossCompile() {
+
+    collectSource();
+
+    compileToTarget();
+
+  }
+
+  //Template methods
+
+  protected abstract void collectSource();
+
+  protected abstract void compileToTarget();
+
+}
+
+public class IPhoneCompiler extends CrossCompiler {
+
+  protected void collectSource() {
+
+    //anything specific to this class
+
+  }
+
+  protected void compileToTarget() {
+
+    //iphone specific compilation
+
+  }
+
+}
+
+public class AndroidCompiler extends CrossCompiler {
+
+  protected void collectSource() {
+
+    //anything specific to this class
+
+  }
+
+  protected void compileToTarget() {
+
+    //android specific compilation
+
+  }
+
+}
+
+public class Client {
+
+  public static void main(String[] args) {
+
+    CrossCompiler iphone = new IPhoneCompiler();
+
+    iphone.crossCompile();
+
+    CrossCompiler android = new AndroidCompiler();
+
+    android.crossCompile();
+
+  }
+
+}

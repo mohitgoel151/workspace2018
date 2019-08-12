@@ -7,6 +7,8 @@ public class TwoDArrayMain {
         
 //        TrapRainWater obj = new TrapRainWater();
         
+//        TrappingRainWater2D obj = new TrappingRainWater2D();
+        
         DungeonGame obj = new DungeonGame();
         
         

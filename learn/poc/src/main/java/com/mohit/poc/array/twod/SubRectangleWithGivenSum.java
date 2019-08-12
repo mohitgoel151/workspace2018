@@ -14,7 +14,12 @@ public class SubRectangleWithGivenSum {
 
     public void execute() {
 
-        int[][] input = { { 1, 2, 3, 4, -9 }, { 6, -2, -3, -4, -5 }, { 6, -2, -3, -4, -6 }, { 6, 2, 3, 4, 6 } };
+        int[][] input = { 
+                { 1, 2, 3, 4, -9 }, 
+                { 6, -2, -3, -4, -5 }, 
+                { 6, -2, -3, -4, -6 }, 
+                { 6, 2, 3, 4, 6 } 
+        };
 
         assertEquals(12, getSizeWithSum(input, 0));
         assertEquals(16, getSizeWithSum(input, 19));

@@ -167,6 +167,7 @@ public class FbMinWeightPath {
 
     private List<FbPoint> getAdjacentUnTraversedCells(int[][] traversalMatrix, FbPoint cell) {
         List<FbPoint> cells = new ArrayList<>();
+        
         List<FbPoint> adjacentCells = getAdjacentCells(traversalMatrix, cell);
         for (FbPoint fbPoint : adjacentCells) {
             if (isNotTraversed(fbPoint, traversalMatrix)) {

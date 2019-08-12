@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import com.mohit.poc.pojo.PersonHeightWeight;
 
 /**
@@ -15,7 +13,6 @@ import com.mohit.poc.pojo.PersonHeightWeight;
  * her. Given the heights and weights of each person in the circus, write a method to compute the largest
  * possible number of people in such a tower.
  * 
- * @author mmt6413
  *
  */
 
