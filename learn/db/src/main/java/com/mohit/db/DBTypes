@@ -1,0 +1,5 @@
+Key Value => Redis, memcache, Couchbase, DynamoDB
+Column => Cassandra, Redshift
+Document => Mongo, Couchbase, DynamoDB (Indexing on json based value structure)
+Graph => Neo4j, Arrango
+Data Structure => Redis, 

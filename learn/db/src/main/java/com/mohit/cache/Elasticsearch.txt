@@ -1,0 +1,26 @@
+Elasticsearch
+	Lucene based SYSTEM
+	stores data in reverse index manner
+	
+
+Usages :
+ 	1) Auto complete (Prefix and suffix tree)
+ 	2) searching
+ 	3) A simple search with multiple terms is then done by looking up all the terms and their occurrences, 
+ 	   and take the intersection (for AND searches) or the union (for OR searches) of the sets of occurrences to get the resulting list of documents
+ 	4) geo hashes
+	
+
+Properties :
+	Indexes are built first in-memory, then occasionally flushed in segments to disk.
+	Index segments are immutable. Deleted documents are marked as such.
+	An index is made up of multiple segments. A search is done on every segment, with the results merged.
+	Which Elasticsearch indexes, and what shards (and replicas) search requests are sent to, can be customized in many ways
+		1) Lots of data is time based, e.g. logs, tweets, etc. By creating an index per day (or week, month, …), we can efficiently limit searches to 
+		    certain time ranges - and expunge old data. Remember, we cannot efficiently delete from an existing index, but deleting an entire index is cheap.
+    	2) When searches must be limited to a certain user (e.g. "search your messages"), it can be useful to route all the documents for that user to the same shard, 
+    		to reduce the number of indexes that must be searched.
+
+
+Links :
+https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up

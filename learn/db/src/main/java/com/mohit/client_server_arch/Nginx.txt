@@ -1,0 +1,6 @@
+Ngnix:
+	event‑driven architecture that enables it to scale to hundreds of thousands of concurrent connections on modern hardware
+	 
+	Refer : ReverseProxy_LoadBalancer.txt
+
+NGINX Plus performs all the load-balancing and reverse proxy functions 

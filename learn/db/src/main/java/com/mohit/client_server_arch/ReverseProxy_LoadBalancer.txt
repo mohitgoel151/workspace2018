@@ -1,0 +1,27 @@
+The basic definitions are simple:
+
+    A reverse proxy accepts a request from a client, forwards it to a server that can fulfill it, and returns the server’s response to the client.
+    A load balancer distributes incoming client requests among a group of servers, in each case returning the response from the selected server to the appropriate client.
+
+    
+Load Balancer :
+	1) Evenly distributes requests to healthy servers (Doing same work).
+	2) Session persistance and routing traffic to a session to same server (based to server detail provided by cookie)
+    
+    
+Reverse Proxy : 	
+	You can think of the reverse proxy as a website’s “public face.”
+	
+	1) Increased security – No information about your backend servers is visible outside your internal network (DDoS)
+		rejecting traffic from particular client IP addresses (blacklisting)
+		limiting the number of connections accepted from each client.
+	2) Increased scalability and flexibility – Because clients see only the reverse proxy’s IP address, you are free to change the configuration of your backend infrastructure
+	3) web acceleration 
+		Compression – Compressing server responses before returning them to the client
+		SSL termination – De-crypting the incoming traffic and encrypting outgoing response. (Application servers don't need to take care of these)
+		Caching - Caching the response
+    
+    
+    
+Link: 
+	https://www.nginx.com/resources/glossary/reverse-proxy-vs-load-balancer/

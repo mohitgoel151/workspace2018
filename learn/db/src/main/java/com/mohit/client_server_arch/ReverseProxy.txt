@@ -1,0 +1,24 @@
+
+
+Additional benefits include:
+
+    Increased security - Hide information about backend servers, blacklist IPs, limit number of connections per client
+    Increased scalability and flexibility - Clients only see the reverse proxy's IP, allowing you to scale servers or change their configuration
+    SSL termination - Decrypt incoming requests and encrypt server responses so backend servers do not have to perform these potentially expensive operations
+        Removes the need to install X.509 certificates on each server
+    Compression - Compress server responses
+    Caching - Return the response for cached requests
+    Static content - Serve static content directly
+        HTML/CSS/JS
+        Photos
+        Videos
+        Etc
+
+        
+        
+Reverse Proxy V/S Load balancers
+
+The basic definitions are simple:
+
+    A reverse proxy accepts a request from a client, forwards it to a server that can fulfill it, and returns the server’s response to the client.
+    A load balancer distributes incoming client requests among a group of servers, in each case returning the response from the selected server to the appropriate client.

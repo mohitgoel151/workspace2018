@@ -24,7 +24,9 @@ public class LargestNumber {
         int[] i2 = { 3, 90, 94, 5, 9 };
 
         assertEquals("9534330", getLargestString(i1));
-         assertEquals("9949053", getLargestString(i2));
+        
+        System.out.println();
+        assertEquals("9949053", getLargestString(i2));
 
     }
 

@@ -1,0 +1,12 @@
+Memcache
+	multithreaded event-based key/value cache 
+	No persistance (server crash .. data lost)
+	No replication 
+	Client manages memcache server and data sharding. Each memcache server is independent and unaware of other in cluster
+	Utilizes multiple cores (where as Redis utlizies only one)
+
+
+
+Data fetching
+	Consistent hashing
+	You only need to update your application with a list of ip’s where your memcache servers are located so it automatically use all your servers.	

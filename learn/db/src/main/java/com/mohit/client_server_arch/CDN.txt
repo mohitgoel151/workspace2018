@@ -1,0 +1,17 @@
+Content delivery network
+	globally distributed network of proxy servers, serving content from locations closer to the user
+	static files such as HTML/CSS/JS, photos, and videos
+	Amazon's CloudFront support / Akamai
+	
+	
+Data population	
+	Push
+	Pull
+	
+Properties :
+	TTL based expiry
+	
+	
+	
+Adv :
+	Less user latency

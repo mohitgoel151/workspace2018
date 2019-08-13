@@ -1,0 +1,15 @@
+Write Through 
+	1) write to cache
+	2) Write to db
+	3) return result
+	
+	
+Write Behind :
+	1) Write to cache
+	2) Add event to distributed queue (kafka)
+	3) return response
+	4) Consumer read event from kafka and update db
+	
+
+
+	

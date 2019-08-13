@@ -1,0 +1,21 @@
+Master-Master Replication
+	Couchbase, Arrango
+	
+	
+
+The multi-master replication system is responsible for propagating the data modifications made by each member to the rest of the group, 
+and resolving any conflicts that might arise between concurrent changes made by different members. 
+
+
+	
+Advantages
+
+    Accessability: If one master fails, other masters continue to update the database.
+    Distributed Access: Masters can be located in several physical sites, i.e. distributed across the network.
+
+Disadvantages
+
+    Consistency: Most multi-master replication systems are only loosely consistent, i.e. lazy and asynchronous, violating ACID properties.
+    			 There is a potential for loss of data if the master fails before any newly written data can be replicated to other nodes.
+    Performance: Eager replication systems are complex and increase communication latency.
+    Integrity: Issues such as conflict resolution can become intractable as the number of nodes involved rises and latency increases.

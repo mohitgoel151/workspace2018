@@ -1,0 +1,36 @@
+Redis Architecture
+	in-memory, key-value data store  (stored data in RAM in form of key-value)
+	SINGLE THREADED (Therefore can run  cores/2 instances on same machine)
+	Support atomic operation
+	Has Pub/Sub functionality
+	Master-Slave replication policy by default
+	
+	
+Supported Data types :
+	List
+	set
+	sorted set
+	hast table
+	many more ....... 
+	
+Also support CRDT's (Conflict resolution data type)
+
+	
+Redis Persistance
+	1) Scheduled backups to disk (intermediate data will be lost)
+	2) Logging write/update operation (Huge log data)
+
+
+Redis Replication
+	Master-Slave architecture ... on master failure .. promote slave as master (No writes will be accepted till promotion completes) 
+	
+	
+Clustering In Redis
+	data can be sharded(divided) into many computers	
+		Schedule manual backup of each node (data for which node is acting as master) regularly.
+	
+	
+	
+	
+Links
+1) http://qnimate.com/overview-of-redis-architecture/

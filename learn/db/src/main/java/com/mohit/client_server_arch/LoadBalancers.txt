@@ -1,0 +1,49 @@
+Load Balancers :
+	
+Implementation
+	Hardware Based
+	S/w based (HA Proxy)
+	
+Adv :
+    SSL termination - Decrypt incoming requests and encrypt server responses
+    Issue cookies and route a specific client's requests to same instance
+    
+
+Failover :
+	Active-Active
+	Active-Passive    
+    
+
+Other Adv:
+    Preventing requests from going to unhealthy servers
+    Preventing overloading resources
+    Helping eliminate single points of failure
+    
+    
+
+
+You have a shared IP between the two load-balancers (we will still use the
+original IP). It is active only on one of them at any moment. 
+    
+    shared IP=192.168.1.1
+  192.168.1.3  192.168.1.4    192.168.1.11-192.168.1.14   192.168.1.2
+ -------+------------+-----------+-----+-----+-----+--------+----
+        |            |           |     |     |     |       _|_db
+     +--+--+      +--+--+      +-+-+ +-+-+ +-+-+ +-+-+    (___)
+     | LB1 |      | LB2 |      | A | | B | | C | | D |    (___)
+     +-----+      +-----+      +---+ +---+ +---+ +---+    (___)
+     haproxy      haproxy        4 cheap web servers
+     keepalived   keepalived
+	
+Description :
+-------------
+ - LB1 will receive clients requests.
+ - if a request does not contain a cookie, it will be forwarded to a valid
+   server
+ - in return, a cookie "SERVERID" will be inserted in the response holding the
+   server name (eg: "A").
+ - when the client comes again with the cookie "SERVERID=A", LB1 will know that
+   it must be forwarded to server A. The cookie will be removed so that the
+   server does not see it.
+ - if server "webA" dies, the requests will be sent to another valid server
+   and a cookie will be reassigned.
