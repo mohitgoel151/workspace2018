@@ -28,7 +28,7 @@ public class SentenceBreak {
         if (input == null || input.length() < 1) {
             return;
         }
-
+        
         List<String> op = new ArrayList<>();
         wordBreakUtil(input.toLowerCase(), 1, op);
     }

@@ -24,7 +24,7 @@ public class LongestStringWithKFlips {
         }
         
         int flipsDone = 0;
-        int start = 0, end = 0;
+        int backIndex = 0, frontIndex = 0;
         int max = 0;
         
         for (int i = 0; i < input.length(); i++) {
@@ -34,15 +34,15 @@ public class LongestStringWithKFlips {
                     flipsDone++;
                 } else {
                     //move start pointer ahead
-                    while(input.charAt(start) != '0') {
-                        start++;
+                    while(input.charAt(backIndex) != '0') {
+                        backIndex++;
                     }
-                    start++;
+                    backIndex++;
                 }
             }
-            end++;
-            if(max < (end - start)) {
-                max = end - start;
+            frontIndex++;
+            if(max < (frontIndex - backIndex)) {
+                max = frontIndex - backIndex;
             }
         }
         return max;

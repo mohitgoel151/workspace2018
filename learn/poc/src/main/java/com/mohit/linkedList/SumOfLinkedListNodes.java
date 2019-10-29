@@ -25,15 +25,15 @@ public class SumOfLinkedListNodes {
 
         LinkedListNode l2 = new LinkedListNode(5);
         l2.next = new LinkedListNode(6);
-        l2.next.next = new LinkedListNode(6);
+        l2.next.next = new LinkedListNode(4);
 
-        LinkedListNode result = addTwoNumbers(l1, l2);
-
-        while (result != null) {
-            System.out.println(" ...... " + result.val);
-            result = result.next;
-        }
-
+        printResult(addTwoNumbers(l1, l2));
+        printResult(addTwoNumbersRecursive(l1, l2, 0));
+        
+        l2.next.next.next = new LinkedListNode(2);
+        printResult(addTwoNumbers(l1, l2));
+        printResult(addTwoNumbersRecursive(l1, l2, 0));
+        
     }
 
     public LinkedListNode addTwoNumbers(LinkedListNode l1, LinkedListNode l2) {
@@ -80,4 +80,37 @@ public class SumOfLinkedListNodes {
 
     }
 
+    
+    public LinkedListNode addTwoNumbersRecursive(LinkedListNode l1, LinkedListNode l2, int carry) {
+        
+        if(l1 == null && l2 == null) {
+            if(carry > 0) {
+                return new LinkedListNode(carry);
+            }
+            return null;
+        }
+        
+        int v1 = l1 != null ? l1.val : 0;
+        int v2 = l2 != null ? l2.val : 0;
+        
+        int sum = v1 + v2 + carry;
+        carry = sum / 10;
+        
+        LinkedListNode aNode = new LinkedListNode(sum % 10);
+        
+        l1 = l1 != null ? l1.next : null;
+        l2 = l2 != null ? l2.next : null;
+        
+        aNode.next = addTwoNumbersRecursive(l1, l2, carry);
+        
+        return aNode;
+    }
+    
+    private void printResult(LinkedListNode result) {
+        while (result != null) {
+            System.out.print(result.val);
+            result = result.next;
+        }
+        System.out.println();
+    }
 }

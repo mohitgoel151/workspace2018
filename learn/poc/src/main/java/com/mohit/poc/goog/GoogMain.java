@@ -5,7 +5,7 @@ public class GoogMain {
 	public static void main(String[] args) {
 	    
 		GoogPalindrome palin = new GoogPalindrome();
-//		palin.execute();
+		palin.execute();
 		
         AlternateGreaterSmall obj = new AlternateGreaterSmall();
         obj.execute();

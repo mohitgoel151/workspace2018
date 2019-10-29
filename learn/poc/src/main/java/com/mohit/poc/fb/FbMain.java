@@ -19,6 +19,9 @@ public class FbMain {
 		FbMinWeightPath path = new FbMinWeightPath();
 //		path.execute();
 		
+		SubArrayOfSum sum = new SubArrayOfSum();
+		sum.execute();
+		
 	}
 
 }

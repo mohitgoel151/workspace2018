@@ -6,10 +6,9 @@ public class GraphMain {
 		
 //		ShotestPath1 obj = new ShotestPath1();
 		
-		
-		
-		
-		ShortestPath2 obj = new ShortestPath2();
+//		ShortestPath2 obj = new ShortestPath2();
+	    
+	    KnightDialerProblem obj = new KnightDialerProblem();
 		
 		obj.execute();
 

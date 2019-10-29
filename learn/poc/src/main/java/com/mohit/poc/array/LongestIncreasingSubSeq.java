@@ -22,9 +22,6 @@ public class LongestIncreasingSubSeq {
         List<PersonHeightWeight> input = new ArrayList<>();
         input.add(new PersonHeightWeight(0, 40, 100));
         
-        
-        
-        
         List<PersonHeightWeight> result = getLongestSeq(input);
         result.stream().forEach(System.out::println);
         

@@ -42,7 +42,7 @@ public class GraphNode<T> {
 		return result;
 	}
 
-	@Override
+    @Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -50,7 +50,7 @@ public class GraphNode<T> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GraphNode other = (GraphNode) obj;
+		GraphNode<?> other = (GraphNode<?>) obj;
 		if (edges == null) {
 			if (other.edges != null)
 				return false;

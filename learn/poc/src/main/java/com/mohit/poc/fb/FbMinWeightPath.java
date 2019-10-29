@@ -146,6 +146,8 @@ public class FbMinWeightPath {
      * Traverse the matrix and return cell coordinate which is un-traversed and has
      * smallest value
      * 
+     * TODO: this method can be optimized if we can track untraversed marked cells in min priority queue 
+     * 
      * @param traversalMatrix
      * @return
      */

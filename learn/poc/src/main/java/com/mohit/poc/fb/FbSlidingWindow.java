@@ -20,6 +20,7 @@ public class FbSlidingWindow {
         assertEquals("a", getSubstring("aabb", 1));
         assertEquals("ab", getSubstring("aabb", 2));
         assertEquals("aabb", getSubstring("aabb", 3));
+        assertEquals("abc", getSubstring("abccddeef", 3));
 
         assertEquals("abbc", getSubstring("aabbccddd", 3));
         assertEquals("baad", getSubstring("aabbaaddd", 3));
@@ -44,34 +45,33 @@ public class FbSlidingWindow {
         int backPtr = 0;
         String result = input;
 
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> freqMap = new HashMap<>();
 
-        for (int i = 0; i < input.length(); i++) {
+        for (int aheadIndex = 0; aheadIndex < input.length(); aheadIndex++) {
 
-            Character aChar = input.charAt(i);
-            Integer count = map.get(aChar);
+            Character aChar = input.charAt(aheadIndex);
+            Integer count = freqMap.get(aChar);
 
             if (count != null) {
-                map.put(aChar, count + 1);
+                freqMap.put(aChar, count + 1);
             } else {
                 // Put new char to map
-                map.put(aChar, 1);
-                int size = map.keySet().size();
+                freqMap.put(aChar, 1);
+                int size = freqMap.size();
 
                 if (size < threshold) {
-                // continue
-
+                    // continue
                 } else if (size == threshold) {
-                    backPtr = moveFwd(input, backPtr, threshold, map);
-                    if (result.length() > (i + 1 - backPtr)) {
-                        result = input.substring(backPtr, i + 1);
+                    backPtr = moveFwd(input, backPtr, threshold, freqMap);
+                    if (result.length() > (aheadIndex + 1 - backPtr)) {
+                        result = input.substring(backPtr, aheadIndex + 1);
                     }
 
                 } else {
                     // remove one character from map and go to last char index of next new
-                    backPtr = removeCharacter(map, input, backPtr, threshold);
-                    if (result.length() > (i + 1 - backPtr)) {
-                        result = input.substring(backPtr, i + 1);
+                    backPtr = removeCharacter(freqMap, input, backPtr, threshold);
+                    if (result.length() > (aheadIndex + 1 - backPtr)) {
+                        result = input.substring(backPtr, aheadIndex + 1);
                     }
                 }
             }
@@ -80,8 +80,8 @@ public class FbSlidingWindow {
     }
 
     /**
-     * Remove one character by forwarding backPointer index now move forward till
-     * last occurrence of next character
+     * Remove one character by forwarding backPointer index now move forward till last occurrence of next
+     * character
      * 
      * @param map
      * @param input

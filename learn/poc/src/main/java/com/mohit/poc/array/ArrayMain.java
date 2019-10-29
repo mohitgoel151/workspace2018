@@ -9,7 +9,9 @@ public class ArrayMain {
         
 //        TrappingRainWater obj = new TrappingRainWater();
         
-        DuplicatesInArray obj = new DuplicatesInArray();
+//        DuplicatesInArray obj = new DuplicatesInArray();
+        
+        SlidingWindowMaximum obj = new SlidingWindowMaximum();
         
         obj.execute();
 
