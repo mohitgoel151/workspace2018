@@ -4,18 +4,22 @@ import java.util.List;
 
 public class MWayTreeNode {
 
-    private char value;
+    private String value;
     private List<MWayTreeNode> children;
 
-    public MWayTreeNode(char c) {
+    public MWayTreeNode(String c) {
         value = c;
     }
+    
+    public MWayTreeNode(char c) {
+        this(c + "");
+    }
 
-    public char getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(char value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

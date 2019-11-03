@@ -7,9 +7,11 @@ public class DpMain {
         
 //        MinCoinsForAmount obj = new MinCoinsForAmount();
         
-        VacationDays obj = new VacationDays();
+//        VacationDays obj = new VacationDays();
         
 //        DistinctSubsequences obj = new DistinctSubsequences();
+        
+        FrogJumps obj = new FrogJumps();
         
         obj.execute();
 

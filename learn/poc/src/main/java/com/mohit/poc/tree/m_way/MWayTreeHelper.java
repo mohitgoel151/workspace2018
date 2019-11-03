@@ -15,6 +15,11 @@ public final class MWayTreeHelper {
      *                         H I   J K L
      *                                 |
      *                                 M
+     *                                 
+     *   A(B()C(D(H())E(I())F()G(J()K(M())L())))                              
+     *                                 
+     *                                 
+     *                                 
      */
     public static MWayTreeNode getSampleTree() {
         
@@ -31,6 +36,35 @@ public final class MWayTreeHelper {
         MWayTreeNode n10 = new MWayTreeNode('j');
         MWayTreeNode n11 = new MWayTreeNode('k');
         MWayTreeNode n12 = new MWayTreeNode('l');
+        MWayTreeNode n13 = new MWayTreeNode('m');
+        
+        n1.setChildren(Arrays.asList(n2, n3));
+        
+        n3.setChildren(Arrays.asList(n4, n5, n6, n7));
+        
+        n4.setChildren(Arrays.asList(n8));
+        n5.setChildren(Arrays.asList(n9));
+        n7.setChildren(Arrays.asList(n10, n11, n12));
+        n11.setChildren(Arrays.asList(n13));
+        
+        return n1;
+    }
+    
+    public static MWayTreeNode getSampleStringTree() {
+        
+        MWayTreeNode n1 = new MWayTreeNode("aa4aa");
+        MWayTreeNode n2 = new MWayTreeNode('b');
+        MWayTreeNode n3 = new MWayTreeNode('c');
+        MWayTreeNode n4 = new MWayTreeNode("dd4dd");        
+        MWayTreeNode n5 = new MWayTreeNode('e');
+        MWayTreeNode n6 = new MWayTreeNode('f');
+        MWayTreeNode n7 = new MWayTreeNode('g');
+        
+        MWayTreeNode n8 = new MWayTreeNode("hh4hh");
+        MWayTreeNode n9 = new MWayTreeNode('i');
+        MWayTreeNode n10 = new MWayTreeNode('j');
+        MWayTreeNode n11 = new MWayTreeNode('k');
+        MWayTreeNode n12 = new MWayTreeNode("ll4ll");
         MWayTreeNode n13 = new MWayTreeNode('m');
         
         n1.setChildren(Arrays.asList(n2, n3));

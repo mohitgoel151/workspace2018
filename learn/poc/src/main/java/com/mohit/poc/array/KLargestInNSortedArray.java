@@ -31,12 +31,12 @@ public class KLargestInNSortedArray {
         int[] startIndex = new int[inputList.size()];
         int[] endIndex = new int[] { arr1.length - 1, arr2.length - 1, arr3.length - 1, arr4.length - 1 };
         
-        assertEquals(11, getValidations(inputList, startIndex, endIndex, 11));
+//        assertEquals(22, getValidations(inputList, startIndex, endIndex, 11));
+//        assertEquals(23, getValidations(inputList, startIndex, endIndex, 10));
+//        assertEquals(32, getValidations(inputList, startIndex, endIndex, 1));
+        assertEquals(1, getValidations(inputList, startIndex, endIndex, 32));
         
-//        for(int i = 1; i <= 32; i++) {
-//            assertEquals(i, getValidations(inputList, startIndex, endIndex, i));
-//        }
-
+        System.out.println("All test cases passed " + this.getClass().getSimpleName());
         
     }
 
@@ -66,10 +66,6 @@ public class KLargestInNSortedArray {
 
     private int getKthLargest(List<int[]> inputList, int[] startIndex, int[] endIndex, int k) {
         
-        if(k == 1) {
-            return smallestValueIn(inputList, startIndex);
-        }
-
         int largestArrayIndex = getArrayOfMaxLength(inputList, startIndex, endIndex);
 
         // make binary search on this
@@ -79,61 +75,39 @@ public class KLargestInNSortedArray {
         int[] partitionArray = getPartitionIndex(inputList, startIndex, endIndex, largestArrayIndex, middleIndex, middleIndexValue);
 
         // check if search element lies on left of right of partition index
-        int leftSideElements = 0;
-        System.out.println("");
+        int rightSideElements = 0;
 
         for (int i = 0; i < inputList.size(); i++) {
-            leftSideElements += partitionArray[i] - startIndex[i];
+            rightSideElements += endIndex[i] - partitionArray[i];
         }
-
-        if (leftSideElements > k) {
-            partitionArray[largestArrayIndex] --;
-            return getKthLargest(inputList, startIndex, partitionArray, k);
-        } else if (leftSideElements < k) {
-            int index = smallestIn(inputList, partitionArray);
-            partitionArray[index] ++;
-            return getKthLargest(inputList, partitionArray, endIndex, k - leftSideElements - 1);
+        
+        if(rightSideElements > k) {
+            //move start to mid
+            return getKthLargest(inputList, partitionArray, endIndex, k);
+        } else if (rightSideElements < k) {
+            return getKthLargest(inputList, startIndex, partitionArray, k-rightSideElements);
+            //move end to mid and now K = k-rightSideElements
         } else {
+            return getSamllestValueInRightSide(inputList, partitionArray);
+        }
+    }
+    
+    private int getSamllestValueInRightSide(List<int[]> input, int[] partition) {
+        
+        int smallestValue = Integer.MAX_VALUE;
+        
+        for(int arrayIndex = 0; arrayIndex < input.size(); arrayIndex++) {
             
-            return getLargestInLeft(inputList, partitionArray);
-        }
-    }
-    
-    
-    
-    private int getLargestInLeft(List<int[]> inputList, int[] partitionArray) {
-        int largest = Integer.MIN_VALUE;
-        
-        for (int i = 0; i < partitionArray.length; i++) {
-            int temp; 
-            if(partitionArray[i] == 0) {
-                temp = inputList.get(i)[0];
-            } else {
-                temp = inputList.get(i)[partitionArray[i] - 1];
-            }
-            if(temp > largest) {
-                largest = temp;
+            int[] arr = input.get(arrayIndex);
+            if(arr.length > partition[arrayIndex] + 1) {
+                int val = arr[partition[arrayIndex] + 1];
+                if(val < smallestValue) {
+                    smallestValue = val;
+                }
             }
         }
         
-        return largest;
-    }
-
-    private int smallestIn(List<int[]> inputList, int[] indexArray) {
-        int smallest = inputList.get(0)[indexArray[0]];
-        int index = 0;
-        for(int i = 1; i < inputList.size(); i++) {
-            if(smallest > inputList.get(i)[indexArray[i]]) {
-                smallest = inputList.get(i)[indexArray[i]];
-                index = i;
-            }
-        }
-        return index;
-    }
-
-    private int smallestValueIn(List<int[]> inputList, int[] startIndex) {
-        int smallest = smallestIn(inputList, startIndex);
-        return inputList.get(smallest)[startIndex[smallest]];
+        return smallestValue;
     }
 
     private int[] getPartitionIndex(List<int[]> inputList, int[] startIndex, int[] endIndex, int largestArrayIndex, int middleIndex, int middleIndexValue) {

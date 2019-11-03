@@ -31,5 +31,12 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.9</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-graph/commons-graph -->
+		<dependency>
+			<groupId>commons-graph</groupId>
+			<artifactId>commons-graph</artifactId>
+			<version>0.8.1</version>
+		</dependency>
+
 	</dependencies>
 </project>

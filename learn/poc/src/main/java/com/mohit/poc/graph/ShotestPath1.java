@@ -81,7 +81,7 @@ public class ShotestPath1 {
 					if (input[x][y] == 'W') {
 						result[x][y] = -1;
 					} else if (result[x][y] == null) {
-						result[x][y] = node.getValue() + 1;
+						result[x][y] = node.getValue() + 1; //this will fill the minimum value and all other cells pending in queue will make it larger and can be ignored
 						queue.add(new GraphQueueNode<Integer>(x, y, node.getValue() + 1));
 					}
 				}

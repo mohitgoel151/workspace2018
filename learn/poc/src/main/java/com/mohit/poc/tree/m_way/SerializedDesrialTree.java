@@ -53,7 +53,7 @@ public class SerializedDesrialTree {
         MWayTreeNode root = new MWayTreeNode(input.charAt(index++));
         
         queue.add(root);
-        ccq.add(Integer.parseInt(String.valueOf(input.charAt(index++))));
+        ccq.add(Integer.parseInt(String.valueOf(input.charAt(index++)))); //Assuming node's child count < 10 (taking single digit)
         
         while(!queue.isEmpty()) {
             MWayTreeNode n = queue.poll();
@@ -65,7 +65,7 @@ public class SerializedDesrialTree {
                 for(int i = 0; i < children; i++) {
                 
                     MWayTreeNode cNode = new MWayTreeNode(input.charAt(index++));
-                    int cNodeChild = Integer.parseInt(String.valueOf(input.charAt(index++)));
+                    int cNodeChild = Integer.parseInt(String.valueOf(input.charAt(index++))); //Assuming node's child count < 10 (taking single digit)
                     n.getChildren().add(cNode);
                     
                     queue.add(cNode);
