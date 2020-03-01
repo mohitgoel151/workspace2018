@@ -23,7 +23,6 @@ public class RotatedSortedArray {
         for(; ;) {
             
             mid = (start + end)/2;
-//            System.out.println("mid = " + mid);
             
             if(array[mid] == toFind) {
                 return mid;

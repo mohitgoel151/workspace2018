@@ -77,7 +77,7 @@ public class LCAOfTree {
         }
         TNode lNode = calculateLCA(node.leftNode, i, j, is1stPresent, is2ndPresent);
         
-        //Why traverse right subTree if we have already found both elements in lest subTree
+        //Why traverse right subTree if we have already found both elements in left subTree
         if(is1stPresent.isTrue() && is2ndPresent.isTrue()) {
             return lNode;
         }

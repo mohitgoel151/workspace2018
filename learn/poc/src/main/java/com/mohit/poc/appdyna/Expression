@@ -1,0 +1,140 @@
+((6+8)+(8-4)) + ((5+1) -(8*2))
+
+
+              + 
+          +           -
+      +      -    +     *   
+   6    8
+
+
+
+//Validation of paranthesis
+
+(5 + (4 * 4))
+ 
+
+) 2 * 8 ( - 1 + 5
+
+
+
+
+
+public int evaluate (String expression) {
+  
+  for(for index = 0;  index < expression.length(); index++) {
+    char charValue = expression.charAt(index);
+    if(aChar == '(') {
+      //find index of matching closing brace
+      int closingIndex = closingBraceIndex(expression, index+1);
+      
+      String subExpression = expression.subString(index, closingIndex);
+      int subExpressionValue = evaluate(subExpression);
+    
+    }
+  
+  
+  }
+
+
+
+}
+
+private int closingBraceIndex(String expression , int index) {
+  int count = 1;
+  for(int tempIndex = index; tempIndex < expression.length(); tempIndex++) {
+    char charValue = expression.charAt(index);
+    if(charValue == '(') {
+      count++;
+    } else if (charValue == ')') {
+      count--;
+      if (count == 0) {
+        return tempIndex;
+      }
+    }
+    
+  return expression.length() -1;
+  }
+  
+}
+
+
+
+
+
+
+
+public boolean fixValidation(String expression) {
+  
+  //validation part
+  int closeCount = 0;
+  
+  Stack<Character> stack = new Stack<>();
+  Stack<Character> tempStack = new Stack<>();
+  
+  for(int index = expression.count-1; index >= 0 ; index--) {
+    char charValue = expression.charAt(index);
+    if(charValue == ')') { 
+      stack.push(charValue);
+      closeCount++;
+    } else if (charValue == '(') {
+      closeCount--;
+      
+      if(closeCount < 0) {
+        
+      }
+      
+      
+    }
+  
+  }
+  
+
+
+
+
+}
+
+private void addMatchingClosingBrace(Stack<Character> stack) {
+  Stack<Character> tempStack = new Stack<>();
+  while(true) {
+    //todo break condn
+    Character aChar = stack.pop();
+    
+  
+  
+  }
+  
+
+
+}
+
+
+
+
+
+
+public boolean Validate(String expression) {
+
+  if(expression == null || expression.length() == 0) {
+    throw new IllegalArgException ("..... ");
+  }
+
+
+  int openCount = 0;
+  
+  for(int index = 0; index < expression.count; index++) {
+    char charValue = expression.charAt(index);
+    if(charValue == '(') {
+      openCount++;
+    } else if (charValue == ')') {
+      openCount--;
+      if(openCount < 0) {
+        return false;
+      }
+    }
+  
+  }
+  
+  return openCount == 0 ? true : false;
+
+}

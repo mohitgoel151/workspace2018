@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * 
-Check if a string is palindrome  or not (ignore any special charters) e.g.   "  s9,!g)9s" is a palindrom
+Check if a string is palindrome  or not (ignore any special charters) e.g.   "  s9,!g)9s" is a palindrome
  *
  */
 public class GoogPalindrome {
@@ -57,7 +57,5 @@ public class GoogPalindrome {
 		}
 		return i;
 	}
-	
-	
 
 }

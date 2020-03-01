@@ -55,11 +55,14 @@ public class CoinCombinations {
 
         for (int iCoin = 0; iCoin < coins.size(); iCoin++) {
             for (int amt = 1; amt <= amount; amt++) {
+                
                 // without current coin
                 int without = (iCoin > 0) ? arr[iCoin - 1][amt] : 0;
 
+                int coinValue = coins.get(iCoin);
+                
                 // For with this coin
-                int with = (coins.get(iCoin) <= amt) ? arr[iCoin][amt - coins.get(iCoin)] : 0;
+                int with = (coinValue <= amt) ? arr[iCoin][amt - coinValue] : 0;
 
                 arr[iCoin][amt] = with + without;
 

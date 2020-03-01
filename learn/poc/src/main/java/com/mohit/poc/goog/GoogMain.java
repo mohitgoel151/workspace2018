@@ -5,12 +5,13 @@ public class GoogMain {
 	public static void main(String[] args) {
 	    
 		GoogPalindrome palin = new GoogPalindrome();
-		palin.execute();
+//		palin.execute();
 		
         AlternateGreaterSmall obj = new AlternateGreaterSmall();
-        obj.execute();
+//        obj.execute();
 		
-		GoogBreadPartition bread = new GoogBreadPartition();
+//		GoogBreadPartition bread = new GoogBreadPartition();
+        GoogBreadPartition2 bread = new GoogBreadPartition2();
 		bread.execute();
 		
 

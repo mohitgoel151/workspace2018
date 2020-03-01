@@ -42,11 +42,8 @@ public class MaxAreaInHistogram {
         pointsList.add(new Point(pointsList.get(pointsList.size() - 1).getX() + 1, 0));
 
         for (Point point : pointsList) {
-            if (stack.isEmpty()) {
-                stack.push(point);
-            }
 
-            if (stack.peek().getY() < point.getY()) {
+            if (stack.isEmpty() || stack.peek().getY() < point.getY()) {
                 stack.push(point);
             } else if (stack.peek().getY() > point.getY()) {
                 while (stack.size() > 0 && stack.peek().getY() > point.getY()) {

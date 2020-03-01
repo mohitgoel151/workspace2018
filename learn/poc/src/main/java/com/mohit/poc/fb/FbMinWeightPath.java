@@ -10,6 +10,10 @@ import java.util.List;
 /**
  * https://www.geeksforgeeks.org/minimum-cost-path-left-right-bottom-moves-allowed/
  * 
+ * It is not possible to solve this problem using dynamic programming similar to previous problem because here current 
+ * state depends not only on right and bottom cells but also on left and upper cells. 
+ * We solve this problem using dijkstra’s algorithm
+ * 
  * UnMarked Cells => Int.MAX 
  * Marked Cells => +ve value but less than Int.MAX
  * Traversed cells => -ve value

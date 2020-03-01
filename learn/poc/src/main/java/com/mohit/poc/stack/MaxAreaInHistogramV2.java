@@ -8,7 +8,7 @@ import java.util.Stack;
 public class MaxAreaInHistogramV2 {
 
     public void test() {
-        List<Integer> hist = new ArrayList<>(Arrays.asList(2, 3, 0, 4, 1, 1, 2));
+        List<Integer> hist = new ArrayList<>(Arrays.asList(11, 11, 10, 10, 10));
         int area = getMaxHistogramArea(hist);
         System.out.println(area);
     }

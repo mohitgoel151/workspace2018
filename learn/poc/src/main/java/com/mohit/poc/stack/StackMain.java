@@ -7,7 +7,11 @@ public class StackMain {
 	    
 //	    MaxAreaInHistogramV2 max = new MaxAreaInHistogramV2();
 	    
-	    LargestRectInImage max = new LargestRectInImage();
+	    MaxAreaInHistogramV3 max = new MaxAreaInHistogramV3();
+	    
+//	    LargestRectInImage max = new LargestRectInImage();
+	    
+	    
 	    max.test();
 
 	}

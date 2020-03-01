@@ -5,7 +5,7 @@ public class TreeMain {
     public static void main(String[] args) {
 //        GetInvertedCount obj = new GetInvertedCount();
         
-//        FlipTree obj = new FlipTree();
+        FlipTree obj = new FlipTree();
         
 //        LCAOfTree obj = new LCAOfTree();
         
@@ -13,7 +13,7 @@ public class TreeMain {
         
 //        DiaOfTree obj = new DiaOfTree();
         
-        TreeMirror obj = new TreeMirror();
+//        TreeMirror obj = new TreeMirror();
         
         
         obj.execute();

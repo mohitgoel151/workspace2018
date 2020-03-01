@@ -9,10 +9,14 @@ public class TwoDArrayMain {
         
 //        TrappingRainWater2D obj = new TrappingRainWater2D();
         
-        DungeonGame obj = new DungeonGame();
+//        DungeonGame obj = new DungeonGame();
         
+//        ConnectedServers obj = new ConnectedServers();
         
-        obj.execute();
+        String a = "hell";
+        System.out.println(a.substring(0, 4));
+        
+//        obj.execute();
 
     }
 

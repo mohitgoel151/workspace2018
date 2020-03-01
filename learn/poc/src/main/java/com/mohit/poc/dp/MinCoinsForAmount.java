@@ -56,7 +56,8 @@ public class MinCoinsForAmount {
         for (int iCoin = 0; iCoin < coins.size(); iCoin++) {
             for (int amt = 0; amt <= amount; amt++) {
                 int without = (iCoin > 0) ? arr[iCoin-1][amt] : Integer.MAX_VALUE; 
-                int with = (amt - coins.get(iCoin) >= 0) ? (arr[iCoin][amt - coins.get(iCoin)] + 1) : 1;
+                int coinValue = coins.get(iCoin);
+                int with = (amt - coinValue >= 0) ? (arr[iCoin][amt - coinValue] + 1) : 1;  //+1 because of accounting current coin
                 arr[iCoin][amt] = Math.min(with , without);
             }
         }

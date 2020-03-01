@@ -83,11 +83,13 @@ public class KnightDialerProblem {
     
     
     private List<Point> getPossibleMoves() {
-        
-        return Collections.unmodifiableList(Arrays.asList(
-                new Point(2, 1), new Point(2, -1), new Point(-2, 1), new Point(-2, -1),
-                new Point(1, 2), new Point(1, -2), new Point(-1, 2), new Point(-1, -2))
-                );
+
+        return Collections.unmodifiableList(
+                        Arrays.asList(
+                                new Point(2, 1), new Point(2, -1), new Point(-2, 1), new Point(-2, -1), 
+                                new Point(1, 2), new Point(1, -2), new Point(-1, 2), new Point(-1, -2)
+                        )
+               );
     }
     
 

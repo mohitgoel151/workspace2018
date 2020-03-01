@@ -2,7 +2,6 @@ package com.mohit.poc.graph;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -39,8 +38,8 @@ public class ShotestPath1 {
 			{ 1, 2, 2, 1, 0 }
 		};
 		
-		ArrayList<String> a = new ArrayList<>();
-		a.equals(null);
+//		ArrayList<String> a = new ArrayList<>();
+//		a.equals(null);
 
 		Comparator<GraphQueueNode<Integer>> comparator = new GraphQueueNodeIntComparator();
 
