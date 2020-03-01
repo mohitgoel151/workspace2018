@@ -1,7 +1,5 @@
 package com.mohit.poc.dp;
 
-import com.mohit.queue.priority.TaskSchedule3;
-
 public class DpMain {
 
     public static void main(String[] args) {
@@ -23,7 +21,9 @@ public class DpMain {
         
 //        TaskSchedule3 obj = new TaskSchedule3();
         
-        LongestArithmeticProgression obj = new LongestArithmeticProgression();
+//        LongestArithmeticProgression obj = new LongestArithmeticProgression();
+    	
+    	LongestIncreasingSubsequence obj = new LongestIncreasingSubsequence();
         
         obj.execute();
 
