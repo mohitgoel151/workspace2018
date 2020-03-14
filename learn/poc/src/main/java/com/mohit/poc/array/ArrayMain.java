@@ -15,10 +15,8 @@ public class ArrayMain {
         
 //        SlidingWindowMaximum obj = new SlidingWindowMaximum();
         
-//        MostFrequent obj = new MostFrequent();
-        
-        FourNumberHavingSum obj = new FourNumberHavingSum();
-        
+        MostFrequent obj = new MostFrequent();
+                
         obj.execute();
 
     }
