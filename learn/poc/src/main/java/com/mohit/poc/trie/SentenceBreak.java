@@ -9,6 +9,8 @@ import java.util.List;
  * 
  * Given a valid sentence without any spaces between the words and a dictionary of valid English words, find
  * all possible ways to break the sentence in individual dictionary words.
+ * 
+ * IMP : Refer WordBreak for Memoized solution (without trie)
  *
  */
 public class SentenceBreak {

@@ -10,7 +10,7 @@ import java.util.Queue;
 public class SnakeAndLadder {
 
 	public static void main(String[] args) {
-
+		
 		SnakeAndLadderSol sol = new SnakeAndLadderSol();
 
 		int[][] ladders = new int[][] { { 3, 54 }, { 37, 100 } };
