@@ -115,6 +115,7 @@ public class TaskSchedule3 {
 class TaskComparator implements Comparator<int[]> {
     @Override
     public int compare(int[] a, int[] b) {
+    	//Descending order
         return -1 * (a[0] - b[0]);
     }
 }

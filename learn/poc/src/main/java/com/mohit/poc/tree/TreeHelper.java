@@ -42,6 +42,10 @@ public final class TreeHelper {
         return root;
 
     }
+    
+    public static void addNodeInBST(TNode treeNode, int val) {
+    	addNodeInBST(treeNode, new TNode(val));
+	}
 
     public static void addNodeInBST(TNode treeNode, TNode node) {
         if (treeNode == null) {

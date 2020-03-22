@@ -2,6 +2,11 @@ package com.mohit.poc.slidingwindow;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * 
+ * Longest substring with "1" after k flips of "0"
+ *
+ */
 public class LongestStringWithKFlips {
     
     public void execute() {
