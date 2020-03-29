@@ -18,6 +18,9 @@ import static org.junit.Assert.assertEquals;
  * 1. (i+1, j) 
  * 2. (i, j+1)
  * 3. (i+1, j+1) ... this is not required as it will also come from child nodes of above 2 conditions.
+ * 
+ * Alternative way to solve via DP 2D matrix
+ * https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/RegexMatching.java#L50
  */
 public class Wildcard {
 
