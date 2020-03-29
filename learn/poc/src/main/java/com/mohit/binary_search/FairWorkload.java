@@ -23,10 +23,18 @@ import static org.junit.Assert.assertTrue;
  * folders that a worker would have to look through. For example, suppose there were three workers and nine
  * filing cabinets with the following number of folders:
  * 
- * @author mohgoel
  *
  */
 public class FairWorkload {
+	
+	public static void main(String[] ar) {
+		FairWorkloadSol sol = new FairWorkloadSol();
+		sol.execute();
+	}
+	
+}
+
+class FairWorkloadSol {
 
     public void execute() {
 
