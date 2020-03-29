@@ -10,42 +10,49 @@ import java.util.Set;
 
 public class AllCombinationsOfSet {
 
-    public void execute() {
+	public static void main(String[] args) {
+		AllCombinationsOfSetSol sol = new AllCombinationsOfSetSol();
+		sol.execute();
+	}
+}
 
-        assertEquals(4, combinations(Arrays.asList(1, 2)));
-        assertEquals(8, combinations(Arrays.asList(1, 2, 3)));
-        assertEquals(16, combinations(Arrays.asList(1, 2, 3, 4)));
-    }
+class AllCombinationsOfSetSol {
 
-    private int combinations(List<Integer> input) {
+	public void execute() {
+		assertEquals(4, combinations(Arrays.asList(1, 2)));
+		assertEquals(8, combinations(Arrays.asList(1, 2, 3)));
+		assertEquals(16, combinations(Arrays.asList(1, 2, 3, 4)));
+	}
 
-        if (input == null || input.size() == 0) {
-            return 0;
-        }
+	private int combinations(List<Integer> input) {
 
-        Set<Set<Integer>> tempCombinations = new HashSet<>();
-        Set<Set<Integer>> finalCombinations = new HashSet<>();
+		if (input == null || input.size() == 0) {
+			return 0;
+		}
 
-        tempCombinations.add(new HashSet<Integer>());
-    
-        for (Integer aNumber : input) {
-            Iterator<Set<Integer>> it = tempCombinations.iterator();
-            finalCombinations.addAll(tempCombinations);
-            
-            while (it.hasNext()) {
-                Set<Integer> newSet = new HashSet<Integer>(it.next());
-                newSet.add(aNumber);
-                finalCombinations.add(newSet);
-            }
-            
-            tempCombinations.clear();
-            tempCombinations.addAll(finalCombinations);
-            finalCombinations.clear();
+		Set<Set<Integer>> resultCombinations = new HashSet<>();
+		Set<Set<Integer>> tempCombinations = new HashSet<>();
 
-        }
-        
-        System.out.println(tempCombinations);
-        return tempCombinations.size();
-    }
+		resultCombinations.add(new HashSet<Integer>());
+
+		for (Integer aNumber : input) {
+
+			tempCombinations.clear();
+			tempCombinations.addAll(resultCombinations);
+
+			Iterator<Set<Integer>> it = resultCombinations.iterator();
+			while (it.hasNext()) {
+				Set<Integer> newSet = new HashSet<>(it.next());
+				newSet.add(aNumber);
+				tempCombinations.add(newSet);
+			}
+
+			resultCombinations.clear();
+			resultCombinations.addAll(tempCombinations);
+		}
+
+		System.out.println(resultCombinations);
+		return resultCombinations.size();
+	}
 
 }
