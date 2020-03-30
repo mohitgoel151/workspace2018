@@ -13,7 +13,9 @@ public class SubArrayWithOne {
     public void execute() {
 
         int[][] input = new int[][] {
-            {1,0,1},{1,1,0},{1,1,0}
+            {1,0,1},
+            {1,1,0},
+            {1,1,0}
         };
         assertEquals(7, input);
         

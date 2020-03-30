@@ -35,7 +35,7 @@ public class GoogBreadPartition2 {
         arr[0] = num;
         num++;
 
-        for (int i = 0; 2 * i + 2 < (len); i++) {
+        for (int i = 0; 2 * i + 2 < len; i++) {
             if(num <= members) {
                 arr[2 * i + 1] = num++;
             } else {
@@ -54,8 +54,7 @@ public class GoogBreadPartition2 {
         System.out.println();
     }
     
-    public double log(int x)
-    {
+    public double log(int x) {
         return (Math.log(x) / Math.log(2));
     }
 

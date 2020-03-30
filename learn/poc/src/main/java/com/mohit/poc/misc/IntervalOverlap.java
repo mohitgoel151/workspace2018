@@ -12,66 +12,73 @@ import com.mohit.poc.pojo.Interval;
  * 
  */
 public class IntervalOverlap {
+	public static void main(String[] args) {
+		IntervalOverlapSol obj = new IntervalOverlapSol();
+		obj.execute();
+	}
+}
 
-    public void execute() {
+class IntervalOverlapSol {
 
-        Interval arr[] = new Interval[4];
-        // arr[0]=new Interval(6,8);
-        // arr[1]=new Interval(1,9);
-        // arr[2]=new Interval(2,4);
-        // arr[3]=new Interval(4,7);
-        // output = 3
+	public void execute() {
 
-        arr[0] = new Interval(6, 8);
-        arr[1] = new Interval(0, 2);
-        arr[2] = new Interval(2, 4);
-        arr[3] = new Interval(4, 7);
-        // output = 2
+		Interval arr[] = new Interval[4];
+		// arr[0]=new Interval(6,8);
+		// arr[1]=new Interval(1,9);
+		// arr[2]=new Interval(2,4);
+		// arr[3]=new Interval(4,7);
+		// output = 3
 
-        List<Interval> inputList = Arrays.asList(arr);
+		arr[0] = new Interval(6, 8);
+		arr[1] = new Interval(0, 2);
+		arr[2] = new Interval(2, 4);
+		arr[3] = new Interval(4, 7);
+		// output = 2
 
-        System.out.println("max overlap =" + getMaxOverlappingIntervals(inputList));
+		List<Interval> inputList = Arrays.asList(arr);
 
-        System.out.println("Merged List = " + getMergedOverlappedIntervals(inputList));
+		System.out.println("max overlap =" + getMaxOverlappingIntervals(inputList));
 
-    }
+		System.out.println("Merged List = " + getMergedOverlappedIntervals(inputList));
 
-    private int getMaxOverlappingIntervals(List<Interval> intervalList) {
+	}
 
-        List<Integer> startList = intervalList.stream().map(a -> a.getStart()).collect(Collectors.toList());
-        List<Integer> endList = intervalList.stream().map(a -> a.getEnd()).collect(Collectors.toList());
+	private int getMaxOverlappingIntervals(List<Interval> intervalList) {
 
-        startList.sort((a, b) -> a.compareTo(b));
-        endList.sort((a, b) -> a.compareTo(b));
+		List<Integer> startList = intervalList.stream().map(a -> a.getStart()).collect(Collectors.toList());
+		List<Integer> endList = intervalList.stream().map(a -> a.getEnd()).collect(Collectors.toList());
 
-        int sIndex = 0, eIndex = 0;
-        int overlap = 0;
+		startList.sort((a, b) -> a.compareTo(b));
+		endList.sort((a, b) -> a.compareTo(b));
 
-        int temp = 0;
+		int sIndex = 0, eIndex = 0;
+		int overlap = 0;
 
-        while (sIndex < startList.size() || eIndex < endList.size()) {
+		int temp = 0;
 
-            if (sIndex < startList.size()) {
-                temp++;
-                sIndex++;
-            }
+		while (sIndex < startList.size() || eIndex < endList.size()) {
 
-            if (overlap < temp) {
-                overlap = temp;
-            }
+			if (sIndex < startList.size()) {
+				temp++;
+				sIndex++;
+			}
 
-            if ((sIndex == startList.size()) || (startList.get(sIndex - 1) >= endList.get(eIndex))) {
-                temp--;
-                eIndex++;
-            }
+			if (overlap < temp) {
+				overlap = temp;
+			}
 
-        }
-        return overlap;
-    }
+			if ((sIndex == startList.size()) || (startList.get(sIndex - 1) >= endList.get(eIndex))) {
+				temp--;
+				eIndex++;
+			}
 
-    private List<Interval> getMergedOverlappedIntervals(List<Interval> inputList) {
+		}
+		return overlap;
+	}
 
-        return null;
-    }
+	private List<Interval> getMergedOverlappedIntervals(List<Interval> inputList) {
+
+		return null;
+	}
 
 }

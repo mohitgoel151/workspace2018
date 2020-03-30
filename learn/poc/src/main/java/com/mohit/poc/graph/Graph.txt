@@ -1,0 +1,52 @@
+Minimum Spanning Tree :
+
+	1. Kruskal Algo : 
+		Add all edges to PQ (increasing order) => ElogE
+		keep pop-ing each node and check if both edges are already part of same cluster.  { (log* V) can be assumed as O(1)  (actually its more than that) }  
+			if YES
+				continue
+			else 
+				consider that edge and connect those 2 clusters (union)
+		Keep on doing this untill we find required number of edges.
+		
+		Time : ElogE { ElogE for building PQ + ElogE for removal from PQ + Elog*v for union and find)
+		Space : O(E)  {while building PQ}
+		
+		Sample Problem : Water distribution
+	
+	
+	
+	2. Prism's Algo
+		
+		Pick any vertex on random
+		Add all adjacent nodes/edges in PQ.
+		
+		iterate over PQ until its empty
+			check if this node is already visited
+			if YES
+				continue
+			else 
+				consider this vertex and add all adjacent vertex in PQ
+		
+		Time : ElogE { ElogE for building PQ + ElogE for removal from PQ)
+		Space : O(E)  {worst case : while building PQ}
+	
+	
+Shortest Path Algo :
+
+	1. Dijkstra Algo : 
+		Its approach and implementation is similar to Prism's Algo.
+		Here we have a fixed source vertex from which we want to track distance. 
+		
+		At each step we add edge to PQ and process least weighted edge (if not processed earlier).
+		
+		Time and space complexities are also same.
+		
+
+Longest Path Algo :
+	Make all edges weights -ve and then run Dijkstra algo on that graph.
+	
+	
+	
+	
+	

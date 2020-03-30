@@ -40,27 +40,27 @@ class SubstringCountSoln {
 			return 0;
 		}
 
-		int low = 0, right = 0, result = 0;
+		int rear = 0, front = 0, result = 0;
 		
 		//As characters are fixed .. use array to track their frequency between low and right index
 		int[] freq = new int[3];
 
 		
-		while (right < s.length()) {
+		while (front < s.length()) {
 			//Keep moving right and update frequency
-			char aChar = s.charAt(right);
+			char aChar = s.charAt(front);
 			freq[aChar - 'a']++;
-			right++;
+			front++;
 
 			//Move low pointer forward until substring i..j has at-least one occurrence
 			while (freq[0] > 0 && freq[1] > 0 && freq[2] > 0) {
-				char lowChar = s.charAt(low);
-				freq[lowChar - 'a']--;
-				low++;
+				char rearChar = s.charAt(rear);
+				freq[rearChar - 'a']--;
+				rear++;
 			}
 			
 			//Update result and increment with low index because all substring between low .. right can make combination for all range from 0 .. low
-			result += low;
+			result += rear;
 		}
 		return result;
 	}

@@ -1,4 +1,4 @@
-package com.mohit.poc.topological_sort;
+package com.mohit.poc.graph.topological_sort;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +30,7 @@ public class CourseScheduleDFS {
         
         System.out.println(findOrder(2, new int[][] {})); // 0,1 || 1,0
         
-        System.out.println(findOrder(2, new int[][] {{1,0}})); // 0,1
+        System.out.println(findOrder(2, new int[][] {{1,0}})); // 0,1  // "0" is to be done first and then "1"
         
         System.out.println(findOrder(3, new int[][] {{1,0}})); // 2,0,1
         

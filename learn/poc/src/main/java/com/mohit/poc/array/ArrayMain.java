@@ -8,11 +8,7 @@ public class ArrayMain {
 //        KLargestInNSortedArray obj = new KLargestInNSortedArray();
         
 //        TrappingRainWater obj = new TrappingRainWater();
-        
-//        ContainerWithMostWater obj = new ContainerWithMostWater();
-        
-//        DuplicatesInArray obj = new DuplicatesInArray();
-        
+                
 //        SlidingWindowMaximum obj = new SlidingWindowMaximum();
         
         MostFrequent obj = new MostFrequent();

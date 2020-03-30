@@ -3,7 +3,7 @@ package com.mohit.poc.list;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -17,7 +17,16 @@ import java.util.List;
  *
  */
 public class LargestNumber {
+	
+    public static void main(String[] args) {
+        LargestNumberSol obj = new LargestNumberSol();
+        obj.execute();
+        System.out.println("All tc passed " + obj.getClass().getSimpleName());
+    }
+}
 
+class LargestNumberSol{
+	
     public void execute() {
 
         int[] i1 = { 3, 30, 34, 5, 9 };
@@ -25,7 +34,6 @@ public class LargestNumber {
 
         assertEquals("9534330", getLargestString(i1));
         
-        System.out.println();
         assertEquals("9949053", getLargestString(i2));
 
     }
@@ -34,25 +42,21 @@ public class LargestNumber {
 
         // validation
 
-        StringBuilder buffer = new StringBuilder();
-
-        List<String> strString = new ArrayList<>();
+        List<String> numberList = new ArrayList<>();
         for (int no : input) {
-            strString.add(String.valueOf(no));
+            numberList.add(String.valueOf(no));
         }
 
-        String[] strArray = new String[input.length];
-
-        Arrays.sort(strString.toArray(strArray), new Comparator<String>() {
+        Collections.sort(numberList, new Comparator<String>() {
 
             @Override
             public int compare(String s1, String s2) {
-                System.out.println(s1 + " ............ " + s2);
                 return (s2 + s1).compareTo(s1 + s2); // Imp : Take care of this ordering
             }
         });
 
-        for (String a : strArray) {
+        StringBuilder buffer = new StringBuilder();
+        for (String a : numberList) {
             buffer.append(a);
         }
         return buffer.toString();

@@ -13,10 +13,20 @@ import com.mohit.poc.pojo.PersonHeightWeight;
  * her. Given the heights and weights of each person in the circus, write a method to compute the largest
  * possible number of people in such a tower.
  * 
+ * Approach 1 :
+ * https://github.com/wzhishen/cracking-the-coding-interview/blob/master/src/chap11/Q7.java
+ * 
+ * Also refer LongestIncreasingSubsequence in dp package
  *
+ *	Approach 2 :
+ 	1. Create a Directed graph from the given list of persons
+ 	2. Each vertex will represent a Person and there will be an edge between two vertices iff source  
+	   vertex(person) can stand on destination vertex(person)
+ 	3. Once a graph is created, now find the longest path in the graph. This should give the solution for the
+       problem. 
  */
 
-public class LongestIncreasingSubSeq {
+public class CircusHumanTower {
 
     public void execute() {
         List<PersonHeightWeight> input = new ArrayList<>();

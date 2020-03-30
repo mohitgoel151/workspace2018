@@ -15,9 +15,11 @@ import java.util.Set;
  * 
  * Given an undirected graph, return true if and only if it is bipartite.
 
-Recall that a graph is bipartite if we can split it's set of nodes into two independent subsets A and B such that every edge in the graph has one node in A and another node in B.
+Recall that a graph is bipartite if we can split it's set of nodes into two independent subsets A and B 
+such that every edge in the graph has one node in A and another node in B.
 
-The graph is given in the following form: graph[i] is a list of indexes j for which the edge between nodes i and j exists.  Each node is an integer between 0 and graph.length - 1.  
+The graph is given in the following form: graph[i] is a list of indexes j for which the edge between nodes i and j exists.  
+Each node is an integer between 0 and graph.length - 1.  
 There are no self edges or parallel edges: graph[i] does not contain i, and it doesn't contain any element twice.
  *
  */
@@ -36,6 +38,11 @@ public class IsBipartiteGraph {
         System.out.println("All test cases passes : " + this.getClass().getSimpleName());
     }
 
+    /**
+     *	Start BFS approach where we can start from any node.
+     *	
+     *	 
+     */
     public boolean isBipartite(int[][] graph) {
 
         if (graph == null || graph.length == 0) {
@@ -63,6 +70,10 @@ public class IsBipartiteGraph {
 
         Queue<Integer> queue = new LinkedList<>();
 
+        /**
+         * As we can't decide what could be out starting node, we iterate over all nodes.
+         * Will check if those nodes are already processed, then continue else add them to queue.
+         */
         for (int vertex = 0; vertex < graph.length; vertex++) {
 
             if (linkMap.get(vertex).size() == 0) {

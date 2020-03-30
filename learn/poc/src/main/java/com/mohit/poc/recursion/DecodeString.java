@@ -31,12 +31,15 @@ public class DecodeString {
         
         StringBuffer tempBuffer = new StringBuffer("");
         StringBuffer multiplyingFac = new StringBuffer("");
+        
         for(int index = 0; index< input.length(); index++) {
             
             if(Character.isLetter(input.charAt(index))) {
                 tempBuffer.append(input.charAt(index));
+                
             } else if(Character.isDigit(input.charAt(index))) {
                 multiplyingFac.append(input.charAt(index));
+                
             } else if(input.charAt(index) == '[') {
                 //find closing brace
                 int multiplyingFactor = Integer.parseInt(multiplyingFac.toString());

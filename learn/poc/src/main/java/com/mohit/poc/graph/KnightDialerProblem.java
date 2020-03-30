@@ -14,6 +14,15 @@ import com.mohit.models.Point;
  *
  */
 public class KnightDialerProblem {
+	
+	public static void main(String[] args) {
+		KnightDialerProblemSol obj = new KnightDialerProblemSol();
+		obj.execute();
+
+	}
+}
+
+class KnightDialerProblemSol {
     
     List<Point> possibleMoves = null;
     
@@ -53,7 +62,7 @@ public class KnightDialerProblem {
         int moves = 0;
         
         for(Point newCell :  movesforPosition) {
-            moves = moves + getMoves(dialerPad, newCell, hopsRemaining-1);
+            moves += getMoves(dialerPad, newCell, hopsRemaining-1);
         }
         
         return moves;

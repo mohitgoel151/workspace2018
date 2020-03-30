@@ -28,6 +28,7 @@ class FourNumberHavingSumSol {
 	}
 
 	private void printElements(int[] input, int sum) {
+		
 		if (input == null || input.length < 4) {
 			return;
 		}
@@ -38,11 +39,11 @@ class FourNumberHavingSumSol {
 			for (int j = i + 1; j < input.length; j++) {
 
 				int s = input[i] + input[j];
-				int remaining = (sum - s);
+				int remaining = sum - s;
 
 				List<Pair<Integer, Integer>> val = map.get(remaining);
 				if (val == null) {
-					val = new ArrayList<Pair<Integer, Integer>>();
+					val = new ArrayList<>();
 					map.put(s, val);
 				}
 

@@ -1,4 +1,4 @@
-package com.mohit.poc.topological_sort;
+package com.mohit.poc.graph.topological_sort;
 
 public class TopologicalSortMain {
 

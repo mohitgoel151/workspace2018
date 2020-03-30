@@ -10,7 +10,7 @@ import java.util.Set;
  * 
  * https://leetcode.com/problems/flower-planting-with-no-adjacent
  * 
- * You have N gardens, labelled 1 to N.  In each garden, you want to plant one of 4 types of flowers.
+ * You have N gardens, labeled 1 to N.  In each garden, you want to plant one of 4 types of flowers.
 
 paths[i] = [x, y] describes the existence of a bidirectional path from garden x to garden y.
 
@@ -59,10 +59,12 @@ public class FlowerGarden {
 
         boolean[] flowerAvailable = new boolean[5];
 
+        //Here we are iteratively picking gardens by garden number
         for (int i = 1; i <= N; i++) {
             flowerAvailable = new boolean[5];
             Arrays.fill(flowerAvailable, true);
             
+            //check which all adjacent gardens have already chosen their color and mark all those colors as un-available for this garden
             for(int adjacentGarden : map.get(i)) {
                 if(result[adjacentGarden-1] != 0) {
                     flowerAvailable[result[adjacentGarden-1]] = false;

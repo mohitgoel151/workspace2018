@@ -3,9 +3,7 @@ package com.mohit.poc.fb;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Given a matrix, transform in such a way that sum of all elements of an sub matrix is O(1)
- * @author mohgoel
- *
+ * Given a matrix, transform it in such a way that fetching sum of all elements for an sub matrix is in O(1) time.
  */
 public class FbSubMatrixSum {
 

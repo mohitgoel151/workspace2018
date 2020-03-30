@@ -20,6 +20,7 @@ public class MostFrequent {
             return 1;
         }
         Arrays.sort(intervals, new Sortbyroll());
+        
         Stack<int[]> stack = new Stack<>();
         stack.push(intervals[0]);
 
@@ -41,6 +42,6 @@ public class MostFrequent {
 
 class Sortbyroll implements Comparator<int[]> {
     public int compare(int[] a, int[] b) {
-        return b[0] - a[0];
+        return b[0] - a[0]; //descending order
     }
 }

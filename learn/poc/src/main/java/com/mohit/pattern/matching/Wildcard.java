@@ -24,53 +24,61 @@ import static org.junit.Assert.assertEquals;
  */
 public class Wildcard {
 
-    public void execute() {
-        assertEquals(true, isMatch("aa", "*"));
-        assertEquals(false, isMatch("acdcb", "a*c?b"));
-        assertEquals(true, isMatch("adceb", "*a*b"));
-        System.out.println("All Test cases passed " +  this.getClass().getSimpleName());
+    public static void main(String[] args) {
+    	WildcardSol obj = new WildcardSol();
+        obj.execute();
     }
+}
 
-    public boolean isMatch(String s, String p) {
+class WildcardSol {
 
-        if (s == null || p == null) {
-            return false;
-        }
+	public void execute() {
+		assertEquals(true, isMatch("aa", "*"));
+		assertEquals(false, isMatch("acdcb", "a*c?b"));
+		assertEquals(true, isMatch("adceb", "*a*b"));
+		System.out.println("All Test cases passed " + this.getClass().getSimpleName());
+	}
 
-        Boolean[][] cache = new Boolean[s.length() + 1][p.length() + 1];
+	public boolean isMatch(String s, String p) {
 
-        return isMatch(0, 0, s, p, cache);
-    }
+		if (s == null || p == null) {
+			return false;
+		}
 
-    private boolean isMatch(int si, int pi, String s, String p, Boolean[][] cache) {
-        if (cache[si][pi] != null) {
-            return cache[si][pi];
-        }
+		Boolean[][] cache = new Boolean[s.length() + 1][p.length() + 1];
 
-        boolean ans;
-        if (pi == p.length()) {
-            ans = (si == s.length());
-        } else if (si == s.length() && (p.charAt(pi) == '*')) {
-            //If string ends and pattern has *, then that can be considered as 0 occurrence of * 
-            ans = isMatch(si, pi + 1, s, p, cache);
-        } else if (si == s.length()) {
-            ans = false;
-        } else {
-            char sc = s.charAt(si);
-            char pc = p.charAt(pi);
+		return isMatch(0, 0, s, p, cache);
+	}
 
-            if (pc == '?') {
-                ans = isMatch(si + 1, pi + 1, s, p, cache);
-            } else if (pc == '*') {
-                //If pattern is * then we can use it and move si+1
-                //We can discard the use of * (0 occurrence) and move pi+1
-                ans = isMatch(si + 1, pi, s, p, cache) || isMatch(si, pi + 1, s, p, cache);
-            } else {
-                ans = (sc == pc) && isMatch(si + 1, pi + 1, s, p, cache);
-            }
+	private boolean isMatch(int si, int pi, String s, String p, Boolean[][] cache) {
+		if (cache[si][pi] != null) {
+			return cache[si][pi];
+		}
 
-        }
-        cache[si][pi] = ans;
-        return ans;
-    }
+		boolean ans;
+		if (pi == p.length()) {
+			ans = (si == s.length());
+		} else if (si == s.length() && (p.charAt(pi) == '*')) {
+			// If string ends and pattern has *, then that can be considered as 0 occurrence of *
+			ans = isMatch(si, pi + 1, s, p, cache);
+		} else if (si == s.length()) {
+			ans = false;
+		} else {
+			char sc = s.charAt(si);
+			char pc = p.charAt(pi);
+
+			if (pc == '?') {
+				ans = isMatch(si + 1, pi + 1, s, p, cache);
+			} else if (pc == '*') {
+				// If pattern is * then we can use it and move si+1
+				// We can discard the use of * (0 occurrence) and move pi+1
+				ans = isMatch(si + 1, pi, s, p, cache) || isMatch(si, pi + 1, s, p, cache);
+			} else {
+				ans = (sc == pc) && isMatch(si + 1, pi + 1, s, p, cache);
+			}
+
+		}
+		cache[si][pi] = ans;
+		return ans;
+	}
 }

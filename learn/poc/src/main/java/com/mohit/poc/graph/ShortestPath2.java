@@ -1,12 +1,9 @@
 package com.mohit.poc.graph;
 
-import java.util.List;
-
 /**
  * https://java2blog.com/dijkstra-java/
  * https://www.geeksforgeeks.org/minimum-edges-reverse-make-path-source-destination/
  * https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
- * @author mohgoel
  *
  */
 public class ShortestPath2 {
@@ -24,11 +21,7 @@ public class ShortestPath2 {
 		graph.addDirectedEdge(0, new GraphNode<String>("4"), new GraphNode<String>("5"));
 		graph.addDirectedEdge(0, new GraphNode<String>("6"), new GraphNode<String>("4"));
 		
-		
-		
 		addReverseEdges(graph);
-		
-		
 	}
 	
 	private void addReverseEdges(Graph<String> graph) {

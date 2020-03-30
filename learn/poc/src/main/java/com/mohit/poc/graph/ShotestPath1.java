@@ -15,7 +15,10 @@ import java.util.Queue;
  * without being able to go through any walls. Also, replace the guards with 0
  * and walls with -1 in output matrix.
  * 
- * @author Mohit
+ * Apply BFS from guard cell locations and set steps count in each cell if initially not set.
+ * 
+ * #### Priority queue #####
+ * has to be used to pick cells which are have least distance with items in queue.
  *
  */
 public class ShotestPath1 {
@@ -37,9 +40,6 @@ public class ShotestPath1 {
 			{ 0, -1, -1, -1, 1 }, 
 			{ 1, 2, 2, 1, 0 }
 		};
-		
-//		ArrayList<String> a = new ArrayList<>();
-//		a.equals(null);
 
 		Comparator<GraphQueueNode<Integer>> comparator = new GraphQueueNodeIntComparator();
 

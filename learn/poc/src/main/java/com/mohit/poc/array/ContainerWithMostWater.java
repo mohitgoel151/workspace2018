@@ -3,7 +3,9 @@ package com.mohit.poc.array;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Variation of trapping rain water https://leetcode.com/problems/container-with-most-water/
+ * Variation of trapping rain water 
+ * 
+ * https://leetcode.com/problems/container-with-most-water/
  * 
  * Initially we consider the area constituting the exterior most lines. Now, to maximize the area, we need to
  * consider the area between the lines of larger lengths. If we try to move the pointer at the longer line
@@ -14,7 +16,16 @@ import static org.junit.Assert.assertEquals;
  *
  */
 public class ContainerWithMostWater {
+	
+	public static void main(String[] args) {
+		ContainerWithMostWaterSol sol = new ContainerWithMostWaterSol();
+		sol.execute();
+		System.out.println("All test cases passed" + sol.getClass().getSimpleName());
+	}
+}
 
+class ContainerWithMostWaterSol {
+	
     public void execute() {
 
         assertEquals(calculate(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }), 49);

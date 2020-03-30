@@ -43,7 +43,8 @@ class SubarrayProductSol {
 		int result = 0;
 
 		for (int front = 0; front < nums.length; front++) {
-
+			
+			//We can add validation here to check if product after multiplication is not going beyond Int.MAX_VALUE
 			product *= nums[front];
 
 			while (front >= rear && product >= k) {

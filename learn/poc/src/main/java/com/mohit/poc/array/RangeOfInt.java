@@ -1,5 +1,10 @@
 package com.mohit.poc.array;
 
+/**
+ * 
+ * Find range of given number (left and right bounds) in sorted array
+ *
+ */
 public class RangeOfInt {
 
 	public static void main(String[] args) {

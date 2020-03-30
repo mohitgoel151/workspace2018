@@ -52,8 +52,9 @@ class RussianDollSol {
 
 		Integer value = cache.get(index);
 		if (value != null) {
-			return value + 1;
+			return value;
 		}
+		
 		int maxCount = 0;
 
 		int[] currentEnvelope = envelopes[index];
@@ -65,9 +66,9 @@ class RussianDollSol {
 				maxCount = Math.max(maxCount, count);
 			}
 		}
-
+		maxCount++;
 		cache.put(index, maxCount);
-		return maxCount + 1;
+		return maxCount;
 	}
 
 	private boolean canAdjust(int[] a, int[] b) {
