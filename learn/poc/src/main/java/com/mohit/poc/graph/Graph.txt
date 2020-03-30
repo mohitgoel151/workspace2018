@@ -34,7 +34,7 @@ Minimum Spanning Tree :
 	
 Shortest Path Algo :
 
-	1. Dijkstra Algo : 
+	1. Dijkstra Algo : (Doesn't work with -ve edges)
 		Its approach and implementation is similar to Prism's Algo.
 		Here we have a fixed source vertex from which we want to track distance. 
 		
@@ -42,11 +42,30 @@ Shortest Path Algo :
 		
 		Time and space complexities are also same.
 		
+		
+	2. Bellman Ford Algo (no negative cycle)
+		Take all vertex in array(in sequence order is fixed) or in map
+		Mark distance of starting point as 0 and distance of all other edges as Int.MAX  
+		Consider all edges and update weight of nodes if   (source weight + edge weight < target weight)
+			Repeat this V-1 times
+		After all repetitions we will get our final result.
+		
+		Time :  O(VE)
+		
+		
+		
 
 Longest Path Algo :
 	Make all edges weights -ve and then run Dijkstra algo on that graph.
 	
 	
+All vertex to all vertex paths
+	Floyd Warshell Algo :
 	
+		for hop  0 -> n
+			for from 0 -> n
+				for to 0 -> n
+					w[from][to] = w[from][hop] + w[hop][to]
 	
+
 	
