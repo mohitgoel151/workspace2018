@@ -1,0 +1,7 @@
+Integer 
+
+
+String binary = Integer.toBinaryString(intValue)  
+int value = Integer.parseInt(binaryString, 2)     //binaryString e.g. 100, 1010
+
+
