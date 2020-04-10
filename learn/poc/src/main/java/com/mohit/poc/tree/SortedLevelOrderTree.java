@@ -91,6 +91,11 @@ class SortedLevelOrderTreeSol {
 		return isPresent(root, data, 0, high);
 	}
 
+	/**
+	 *	Do binary search on low and high range values
+	 *	On each mid ... convert it to binary and then traverse it 
+	 *	basis return value check if we can move  low or high indexes
+	 */
 	boolean isPresent(Node root, int data, int low, int high) {
 		int mid = 0;
 		char[] binaryChars = null;
@@ -114,14 +119,14 @@ class SortedLevelOrderTreeSol {
 	int traverse(char[] binaryChars, Node node, int data, int index) {
 		//It might be a case where this middle element does not exist... in this case we would like to make  high = mid-1
 		if (node == null) {
-			return -1; // move high
-		}
-		if (node.val == data) {
-			return 0; // Hurayy!!!!!!
+			return -1;
 		}
 		
+		//If last char of binary char ... make the final decision
 		if (index + 1 == binaryChars.length) {
-			if (node.val < data)
+			if (node.val == data) {
+				return 0; // Hurayy!!!!!!
+			} else if (node.val < data)
 				return 1; // if relevant node is present and its value is less then we would like to make  mid = low + 1
 			else
 				return -1; // else   mid = high -1
