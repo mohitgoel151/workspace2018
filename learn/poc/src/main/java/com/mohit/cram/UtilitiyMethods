@@ -1,7 +1,19 @@
-Integer 
+## Integer ## 
 
-
-String binary = Integer.toBinaryString(intValue)  
+String binary = Integer.toBinaryString(intNo) 
+String hexString = Integer.toHexString(intNo)
+String octString = Integer.toOctalString(intNo)
+ 
+int bitCount = Integer.bitCount(intNo)   //return count of 1's in binary representation of intNo
 int value = Integer.parseInt(binaryString, 2)     //binaryString e.g. 100, 1010
 
 
+
+
+## Character ##
+
+Character.isDigit(char)    => check if passed char is 0->9
+Character.isLetter(char)   => check if input is letter (upper/lower case
+Character.isLetterOrDigit(char) => checks for both mentioned above
+Character.toUpperCase()
+Character.toLowerCase()
