@@ -4,7 +4,20 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 
+ * Refer approach 3 ..... which has smallest serialized string
+ *
+ */
 public class SerializedDesrialTree {
+	
+    public static void main(String[] args) {
+    	SerializedDesrialTreeSol obj = new SerializedDesrialTreeSol();
+        obj.execute();
+    }
+}
+
+class SerializedDesrialTreeSol {
     
     public void execute() {
         MWayTreeNode root = MWayTreeHelper.getSampleTree();

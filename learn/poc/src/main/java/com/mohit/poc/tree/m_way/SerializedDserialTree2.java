@@ -5,7 +5,19 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerializeDeserializeTreeAlter {
+/**
+ * 
+ * Refer approach 3 ..... which has smallest serialized string
+ *
+ */
+public class SerializedDserialTree2 {
+    public static void main(String[] args) {
+    	SerializedDserialTree2Sol obj = new SerializedDserialTree2Sol();
+        obj.execute();
+    }
+}
+
+class SerializedDserialTree2Sol {
     
     /**
      *                          A

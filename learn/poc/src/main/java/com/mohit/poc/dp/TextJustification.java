@@ -32,7 +32,7 @@ package com.mohit.poc.dp;
 public class TextJustification {
 
 	public static void main(String[] args) {
-		String words1[] = { "Tushar", "likes", "to", "write", "code", "at", "free", "time" };
+		String words1[] = { "Mohit", "likes", "to", "write", "code", "at", "free", "time" };
 		
 		TextJustificationSol awl = new TextJustificationSol();
 		
