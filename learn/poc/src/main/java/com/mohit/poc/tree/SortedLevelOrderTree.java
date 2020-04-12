@@ -84,6 +84,10 @@ class SortedLevelOrderTreeSol {
 		if (root == null || data < root.val) {
 			return false;
 		}
+		
+		if(data == root.val) {
+			return true;
+		}
 
 		int level = getLevelForData(root, data);
 		int high = (int) Math.pow(2, level) - 1;
@@ -127,14 +131,14 @@ class SortedLevelOrderTreeSol {
 			if (node.val == data) {
 				return 0; // Hurayy!!!!!!
 			} else if (node.val < data)
-				return 1; // if relevant node is present and its value is less then we would like to make  mid = low + 1
+				return 1; // if relevant node is present and its value is less then we would like to make  low = mid + 1;
 			else
-				return -1; // else   mid = high -1
+				return -1; // else   high = mid - 1;
 		}
 		
-		int path = Integer.parseInt(String.valueOf(binaryChars[index+1]));
+		char path = binaryChars[index+1];
 		
-		if (path == 0) {
+		if (path == '0') {
 			return traverse(binaryChars, node.left, data, index + 1);
 		} else {
 			return traverse(binaryChars, node.right, data, index + 1);

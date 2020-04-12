@@ -12,7 +12,9 @@ import java.util.Queue;
  * 
  * Assign # value to null nodes while making String
  * 
- * Looks like smallest String can be achieved via this approach
+ * Looks like smallest String can be achieved via this approach.
+ * 
+ * Another extension of this problem can be when node can have any number of children. (Refer appraoch 2)
  *
  */
 public class SerializedDserialTree3 {

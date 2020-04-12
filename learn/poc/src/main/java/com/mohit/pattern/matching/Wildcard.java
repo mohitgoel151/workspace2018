@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * 
  * https://leetcode.com/problems/wildcard-matching/
+ * https://leetcode.com/problems/regular-expression-matching/
  * 
  * '?' Matches any single character. 
  * '*' Matches any sequence of characters (including the empty sequence).
@@ -73,8 +74,10 @@ class WildcardSol {
 				// If pattern is * then we can use it and move si+1
 				// We can discard the use of * (0 occurrence) and move pi+1
 				ans = isMatch(si + 1, pi, s, p, cache) || isMatch(si, pi + 1, s, p, cache);
+			} else if (sc == pc) {
+				ans = isMatch(si + 1, pi + 1, s, p, cache);
 			} else {
-				ans = (sc == pc) && isMatch(si + 1, pi + 1, s, p, cache);
+				ans = false;
 			}
 
 		}

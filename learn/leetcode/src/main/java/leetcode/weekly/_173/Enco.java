@@ -4,10 +4,6 @@ public class Enco {
 
     public static void main(String[] args) {
     	
-    	
-    	String[] aa = "a_b_c_".split("_");
-    	
-    	
         System.out.println(countNegatives(new int[][] { 
             {3,-1,-3,-3,-3},
             {2,-2,-3,-3,-3},

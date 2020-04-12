@@ -9,9 +9,7 @@ import static org.junit.Assert.assertEquals;
  * For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. 
  * The path must contain at least one node and does not need to go through the root.
  * 
- * 
  * This problem is extension of diameter of tree problem but here we need to take care of some extra conditions
- *
  */
 public class MaxSumPath {
 	
@@ -73,8 +71,8 @@ class MaxSumPathSol {
 
 		int withoutNode = Math.max(left, right);
 
-		//Similarly here as well
-		treeMaxPath.value = Math.max(leftTreeMaxPath.value, rightTreeMaxPath.value) + node.value;
+		//Similarly here as well .. (track running sum)
+		treeMaxPath.value = Math.max(leftTreeMaxPath.value, rightTreeMaxPath.value) + self;
 		treeMaxPath.value = Math.max(treeMaxPath.value, self);
 
 		return Math.max(withNode, withoutNode);

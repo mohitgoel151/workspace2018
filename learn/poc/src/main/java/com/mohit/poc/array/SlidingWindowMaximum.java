@@ -7,8 +7,8 @@ import java.util.List;
 
 /**
  * https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
- * @author mohgoel
- *
+ * 
+ * Given an array and an integer K, find the maximum for each and every contiguous subarray of size k
  */
 public class SlidingWindowMaximum {
 
