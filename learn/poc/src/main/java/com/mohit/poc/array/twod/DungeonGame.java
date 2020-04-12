@@ -24,6 +24,14 @@ import static org.junit.Assert.assertEquals;
  *
  */
 public class DungeonGame {
+
+	public static void main(String[] args) {
+		DungeonGameSol obj = new DungeonGameSol();
+		obj.execute();
+	}
+}
+
+class DungeonGameSol {    
     
     public void execute() {
         
@@ -48,15 +56,17 @@ public class DungeonGame {
         
         dCells[0][0] = new DCell(array[0][0], array[0][0]);
         
+//        Traverse on first row
         for(int column = 1; column < array[0].length; column++) {
             int health = dCells[0][column-1].healthBalance + array[0][column];
-            int minHealth = (health < dCells[0][column-1].minTill) ? health : dCells[0][column-1].minTill;
+            int minHealth = Math.min(health, dCells[0][column-1].minTill);
             dCells[0][column] = new DCell(health, minHealth);
         }
         
+        //Traverse on first column
         for(int row = 1 ; row < array.length; row++) {
             int health = dCells[row-1][0].healthBalance + array[row][0];
-            int minHealth = (health < dCells[row - 1][0].minTill) ? health : dCells[row - 1][0].minTill;
+            int minHealth = Math.min(health, dCells[row - 1][0].minTill);
             dCells[row][0] = new DCell(health, minHealth);
         }
         
@@ -66,6 +76,7 @@ public class DungeonGame {
                 int selectedRow = 0;
                 int selectColumn = 0;
                 
+                //Choose column whose minTill value is larger
                 if(dCells[row-1][column].minTill > dCells[row][column-1].minTill) {
                     selectedRow = row -1;
                     selectColumn = column;
@@ -75,7 +86,7 @@ public class DungeonGame {
                 }
                 
                 int health = dCells[selectedRow][selectColumn].healthBalance + array[row][column];
-                int minTill = (health < dCells[selectedRow][selectColumn].minTill) ? health : dCells[selectedRow][selectColumn].minTill;
+                int minTill = Math.min(health, dCells[selectedRow][selectColumn].minTill);
                 dCells[row][column] = new DCell(health, minTill);
             }
         }

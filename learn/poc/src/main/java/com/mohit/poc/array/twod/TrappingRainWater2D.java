@@ -10,6 +10,14 @@ import com.mohit.poc.pojo.Cell;
 
 
 public class TrappingRainWater2D {
+	
+	public static void main(String[] args) {
+		TrappingRainWater2DSol obj = new TrappingRainWater2DSol();
+		obj.execute();
+	}
+}
+
+class TrappingRainWater2DSol {
     
     int[][] adjacents = new int[][] { 
         {-1, 0},
@@ -100,15 +108,11 @@ public class TrappingRainWater2D {
         int capacity = 0;
         int maxTillNow = pq.peek().getValue();
         
-        while(pq.isEmpty() == false) {
+        while(!pq.isEmpty()) {
             Cell aCell = pq.poll();
-            
-            if(maxTillNow < aCell.getValue()) {
-                maxTillNow = aCell.getValue();
-            } else {
-                capacity += (maxTillNow - aCell.getValue());
-            }
-            
+
+            maxTillNow = Math.max(maxTillNow, aCell.getValue());
+            capacity += (maxTillNow - aCell.getValue());
             addAdjacentUntraversedCells(traversed, heightMap, aCell, pq);
         }
 

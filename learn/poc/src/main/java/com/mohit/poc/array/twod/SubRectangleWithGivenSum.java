@@ -11,6 +11,14 @@ import java.util.Map;
  *
  */
 public class SubRectangleWithGivenSum {
+	
+	public static void main(String[] args) {
+		SubRectangleWithGivenSumSol obj = new SubRectangleWithGivenSumSol();
+		obj.execute();
+	}
+}
+
+class SubRectangleWithGivenSumSol {
 
     public void execute() {
 
@@ -30,7 +38,8 @@ public class SubRectangleWithGivenSum {
         assertEquals(0, getSizeWithSum(input, 1200));
         assertEquals(20, getSizeWithSum(input, 5));
         assertEquals(16, getSizeWithSum(input, -14));
-
+        
+        System.out.println("All passed " + this.getClass().getSimpleName());
     }
 
     private int getSizeWithSum(int[][] input, int requiredSum) {
@@ -88,9 +97,7 @@ public class SubRectangleWithGivenSum {
             int remainingSum = runningSum - requiredSum;
             if (runningSet.containsKey(remainingSum)) {
                 int previousIndex = runningSet.get(remainingSum);
-                if(size < i - previousIndex) {
-                    size = i - previousIndex;
-                }
+                size = Math.max(size, i - previousIndex);
             } else {
                 runningSet.putIfAbsent(runningSum, i);
             }

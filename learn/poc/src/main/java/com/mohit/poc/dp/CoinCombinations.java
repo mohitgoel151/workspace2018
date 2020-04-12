@@ -25,7 +25,8 @@ public class CoinCombinations {
 
     }
 
-    private int getCoinCombinations(int amount, List<Integer> coins) {
+    @SuppressWarnings("unused")
+	private int getCoinCombinations(int amount, List<Integer> coins) {
 
         // validate input
         // amount > 0
@@ -36,8 +37,10 @@ public class CoinCombinations {
         arr[0] = 1;
 
         for (int iCoin = 0; iCoin < coins.size(); iCoin++) {
-            for (int amt = coins.get(iCoin); amt <= amount; amt++) {
-                arr[amt] += arr[amt - coins.get(iCoin)];
+        	int coinAmount = coins.get(iCoin);
+        	
+            for (int amt = coinAmount; amt <= amount; amt++) {
+                arr[amt] += arr[amt - coinAmount];
             }
         }
 

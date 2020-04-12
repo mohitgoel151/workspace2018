@@ -20,7 +20,15 @@ import java.util.Set;
  *
  */
 public class TrapRainWater {
-    
+	
+	public static void main(String[] args) {
+		TrapRainWaterSol obj = new TrapRainWaterSol();
+		obj.execute();
+	}
+}
+
+class TrapRainWaterSol {
+	
     List<Cell> adjacent = Collections.unmodifiableList(Arrays.asList(new Cell(1,0), new Cell(-1, 0), new Cell(0,1), new Cell(0, -1)));
     
     public void execute() {
@@ -78,9 +86,7 @@ public class TrapRainWater {
         
         while(!pq.isEmpty()) {
             Cell c = pq.poll();
-            if (max < c.height) {
-                max = c.height;
-            }
+            max = Math.max(max, c.height);
             capacity += traverseAdjacentCells(heightMap, traversed, max, c, pq);
         }
         
