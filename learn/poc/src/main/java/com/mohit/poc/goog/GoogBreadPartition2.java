@@ -1,6 +1,14 @@
 package com.mohit.poc.goog;
 
 public class GoogBreadPartition2 {
+	
+	public static void main(String[] args) {
+		GoogBreadPartition2Sol sol = new GoogBreadPartition2Sol();
+		sol.execute();
+	}
+}
+
+class GoogBreadPartition2Sol {
 
     public void execute() {
 
@@ -15,6 +23,9 @@ public class GoogBreadPartition2 {
         System.out.println("5 3 6 2 4 1  **************");
         printMembersInOrder(6);
 
+        System.out.println();
+        System.out.println("5 3 2 4 1  **************");
+        printMembersInOrder(5);
     }
     
 
@@ -27,7 +38,7 @@ public class GoogBreadPartition2 {
 
         int newSize = (int)Math.pow(2,  (int)size);
         
-        int len = ((int)newSize) * 2 - 1;
+        int len = newSize * 2 - 1;
         
         int num = 1;
 
@@ -44,7 +55,7 @@ public class GoogBreadPartition2 {
             arr[2 * i + 2] = arr[i];
         }
 
-        for (int i = len - (int)newSize; i < len; i++) {
+        for (int i = len - newSize; i < len; i++) {
             if(arr[i] != -1) {
                 System.out.print(arr[i] + " ");
             }
