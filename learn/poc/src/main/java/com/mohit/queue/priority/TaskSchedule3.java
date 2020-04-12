@@ -46,20 +46,23 @@ public class TaskSchedule3 {
             // IllegalArg Exception
         }
 
-        Arrays.sort(courses, new IntervalComparator());
+        Arrays.sort(courses, new IntervalComparator()); //early end date
 
-        Queue<int[]> pq = new PriorityQueue<>(new TaskComparator());
+        Queue<int[]> pq = new PriorityQueue<>(new CourseDurationDescComparator());
 
         int count = 0;
         int start = 0;
 
         for (int[] course : courses) {
+        	int courseDuratrion = course[0];
+        	int courseDeadLine = course[1];
 
-            if (start + course[0] <= course[1]) {
+            if (start + courseDuratrion <= courseDeadLine) {
                 pq.add(course);
                 count++;
-                start += course[0];
-            } else if (pq.peek()[0] > course[0]) {
+                start += courseDuratrion;
+            } else if (pq.peek()[0] > courseDuratrion) {
+            	//If this task can not be accommodated within deadline but if taken can be complete early than previous, then pick this one and remove earlier
                 int[] front = pq.poll();
                 pq.add(course);
                 start += (course[0] - front[0]);
@@ -112,14 +115,15 @@ public class TaskSchedule3 {
     }
 }
 
-class TaskComparator implements Comparator<int[]> {
+class CourseDurationDescComparator implements Comparator<int[]> {
     @Override
     public int compare(int[] a, int[] b) {
     	//Descending order
-        return -1 * (a[0] - b[0]);
+        return b[0] - a[0];
     }
 }
 
+//Early end date
 class IntervalComparator implements Comparator<int[]> {
     public int compare(int[] a, int[] b) {
         return a[1] - b[1];

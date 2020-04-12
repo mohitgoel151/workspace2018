@@ -38,7 +38,9 @@ class MaxEventsSolution {
 			return 0;
 		}
 
-		Map<Integer, List<Integer>> eventMap = new TreeMap<>();
+		//Key is start date
+		//Value list of end dates for these events
+		Map<Integer, List<Integer>> eventMap = new TreeMap<>();  
 
 		for (int[] event : events) {
 			List<Integer> endDates = eventMap.get(event[0]);
@@ -52,7 +54,7 @@ class MaxEventsSolution {
 
 		int day = 0;
 		int result = 0;
-		Queue<Integer> pending = new PriorityQueue<>();
+		Queue<Integer> pending = new PriorityQueue<>();  //keep track of events completion date
 
 		for (Map.Entry<Integer, List<Integer>> entry : eventMap.entrySet()) {
 			//remove expired events
@@ -65,7 +67,7 @@ class MaxEventsSolution {
 				}
 			}
 			
-			int startDay = entry.getKey();
+			int startDay = entry.getKey();  //of current event
 			
 			while (day < startDay && !pending.isEmpty()) {
 				int endDay = pending.poll();

@@ -40,7 +40,7 @@ public class IsBipartiteGraph {
 
     /**
      *	Start BFS approach where we can start from any node.
-     *	
+     *	graph[i] => Give array of vertex to which "i" vertex is directly connected 
      *	 
      */
     public boolean isBipartite(int[][] graph) {
@@ -49,6 +49,7 @@ public class IsBipartiteGraph {
             return false;
         }
 
+        //Prepare link map where key is vertex number and value gives nodes to which it is directly connected
         Map<Integer, Set<Integer>> linkMap = new HashMap<>();
 
         for (int vertex = 0; vertex < graph.length; vertex++) {
@@ -76,16 +77,18 @@ public class IsBipartiteGraph {
          */
         for (int vertex = 0; vertex < graph.length; vertex++) {
 
+        	//No connection of these nodes ... so continue
             if (linkMap.get(vertex).size() == 0) {
                 continue;
             }
 
+            //Already processed
             if (setA.contains(vertex) || setB.contains(vertex)) {
                 continue;
             }
 
             queue.add(vertex);
-            queue.add(null);
+            queue.add(null); //Works as level separator in BFS. Once all adjacent nodes are added to queue ... null is inserted 
 
             while (!queue.isEmpty()) {
 
@@ -98,7 +101,7 @@ public class IsBipartiteGraph {
                         }
                         setA.add(val);
                         for (int adjacent : linkMap.get(val)) {
-                            if (!setB.contains(adjacent))
+                            if (!setB.contains(adjacent)) //Adjacent nodes has to be in setB.... so checking and adding only if there already not processed
                                 queue.add(adjacent);
                         }
                     } else {
@@ -113,7 +116,7 @@ public class IsBipartiteGraph {
                     }
 
                 } else {
-                    if (!queue.isEmpty()) {
+                    if (!queue.isEmpty()) { //Need this check otherwise it will keep on iterating in infinite loop
                         queue.add(null);
                     }
                     isSetAActive = !isSetAActive;

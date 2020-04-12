@@ -20,11 +20,11 @@ import java.util.Queue;
 public class SerializedDserialTree3 {
 
 	public static void main(String[] args) {
-//	     1
-//	    / \
-//	   2   3
-//	      / \
-//	     4   5
+		//	     1
+		//	    / \
+		//	   2   3
+		//	      / \
+		//	     4   5
 		
 		TreeNode root = new TreeNode(1);
 		root.left = new TreeNode(2);

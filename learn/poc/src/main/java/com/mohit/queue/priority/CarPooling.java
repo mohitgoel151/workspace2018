@@ -11,11 +11,14 @@ import java.util.Queue;
  * 
  * https://leetcode.com/problems/car-pooling
  * 
- * You are driving a vehicle that has capacity empty seats initially available for passengers.  The vehicle only drives east (ie. it cannot turn around and drive west.)
+ * You are driving a vehicle that has capacity empty seats initially available for passengers.  The vehicle only drives east 
+ * (ie. it cannot turn around and drive west.)
 
-Given a list of trips, trip[i] = [num_passengers, start_location, end_location] contains information about the i-th trip: the number of passengers that must be picked up, and the locations to pick them up and drop them off.  The locations are given as the number of kilometers due east from your vehicle's initial location.
-
-Return true if and only if it is possible to pick up and drop off all passengers for all the given trips. 
+	Given a list of trips, trip[i] = [num_passengers, start_location, end_location] contains information about the i-th trip: 
+	the number of passengers that must be picked up, and the locations to pick them up and drop them off.  
+	The locations are given as the number of kilometers due east from your vehicle's initial location.
+	
+	Return true if and only if it is possible to pick up and drop off all passengers for all the given trips. 
  *
  */
 public class CarPooling {
@@ -37,8 +40,10 @@ public class CarPooling {
         Arrays.sort(trips, new TripComparator());
         Queue<int[]> queue = new PriorityQueue<>(new DropComparator());
 
+        //Iterate over trips which start early (Trip comparator)
         for (int[] trip : trips) {
 
+        	//While considering each trip check if there any trip in queue which are already ended and update capacity accordingly
             while (!queue.isEmpty() && queue.peek()[2] <= trip[1]) {
                 tempCapacity -= queue.poll()[0];
             }
@@ -60,6 +65,7 @@ class DropComparator implements Comparator<int[]> {
     }
 }
 
+//Sort on the basis of pickup and in case pickup is same than sort on the basis of earlier drop
 class TripComparator implements Comparator<int[]> {
 
     @Override
