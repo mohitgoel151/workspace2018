@@ -92,11 +92,10 @@ class ShipCapacitySol {
 
 		int totalWeight = 0;
 		int maxWeight = 0;
+		
 		for (int index = 0; index < weights.length; index++) {
 			totalWeight += weights[index];
-			if (weights[index] > maxWeight) {
-				maxWeight = weights[index];
-			}
+			maxWeight = Math.max(maxWeight, weights[index]);
 		}
 
 		if (weights.length == D) {
@@ -115,23 +114,8 @@ class ShipCapacitySol {
 		while (low <= high) {
 
 			int mid = (low + high) / 2;
-
-			int remainingDays = days;
-			int tempCapacity = 0;
-
-			for (int i = 0; i < weights.length; i++) {
-
-				tempCapacity += weights[i];
-
-				if (tempCapacity > mid) {
-					tempCapacity = weights[i];
-					remainingDays--;
-				}
-				
-				if(i == weights.length -1) {
-					remainingDays--;
-				}
-			}
+			int remainingDays = optimumCapacity(weights, mid, days);
+			
 			if (remainingDays >= 0) {
 				// Remaining days are >= 0, can explore possibility to decrease capacity but
 				// save this as result
@@ -145,36 +129,19 @@ class ShipCapacitySol {
 		}
 		return result;
 	}
+	
+	private int optimumCapacity(int[] weights, int capacity, int days) {
+        int tempCapacity = 0;
+        int remainingDays = days - 1;
 
-//    private int getOptimumValue(int[] weights, int start, int end, int days) {
-//        int result = Integer.MAX_VALUE;
-//        
-//        while (start <= end) {
-//            int mid = (end + start) / 2;
-//
-//            int isBest = isBest(weights, mid, days);
-//
-//            if (isBest >= 0) { // Days are remaining .. scope to reduce
-//                result = Math.min(mid, result);
-//                end = mid - 1;
-//            } else if (isBest < 0) { // Days are less .. need to increase
-//                start = mid + 1;
-//            }            
-//        }
-//        return result;
-//    }
-//
-//    private int isBest(int[] weights, int maxLimit, int days) {
-//        int tw = 0;
-//        int remainingDays = days - 1;
-//        for (int i = 0; i < weights.length; i++) {
-//            tw += weights[i];
-//            if (tw > maxLimit) {
-//                remainingDays--;
-//                tw = weights[i];
-//            }
-//        }
-//        return remainingDays;
-//    }
+        for (int i = 0; i < weights.length; i++) {
+        	tempCapacity += weights[i];
+            if (tempCapacity > capacity) {
+            	tempCapacity = weights[i];
+                remainingDays--;
+            }
+        }
+        return remainingDays;
+    }
 
 }

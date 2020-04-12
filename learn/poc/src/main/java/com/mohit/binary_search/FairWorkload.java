@@ -86,7 +86,7 @@ class FairWorkloadSol {
 
         while (start <= end) {
 
-            int mid = start + (end - start) / 2;
+            int mid = (end + start) / 2;
 
             int canWork = optimumWork(folders, mid, workers);
 
@@ -114,27 +114,5 @@ class FairWorkloadSol {
         }
         return remainingWorkers;
     }
-
-//    private int getOptimumWork(int[] folders, int maxLimit) {
-//        int work = 0;
-//        int maxWork = 0;
-//        for (int i = 0; i < folders.length; i++) {
-//
-//            work += folders[i];
-//            if (work > maxLimit) {
-//                work -= folders[i];
-//                if (work > maxWork) {
-//                    maxWork = work;
-//                }
-//                work = folders[i];
-//            }
-//        }
-//        if (work > maxWork) {
-//            maxWork = work;
-//        }
-//        return maxWork;
-//    }
-
-
 
 }

@@ -32,24 +32,24 @@ class RandomCountrySelectionByPopluationSol {
 			total += arr[i];
 		}
 
-		int ran = random.nextInt(total);
+		int randomNo = random.nextInt(total);
 
 		int low = 0;
 		int high = arr.length - 1;
-		int mid = (high + low) / 2;
+		int mid = 0;
 		
 		while (true) {
-			
-			if (runningSum[mid] >= ran && (mid - 1 == -1 || runningSum[mid - 1] < ran)) {
+			mid = (high + low) / 2;
+			 
+			if (runningSum[mid] >= randomNo && (mid - 1 == -1 || runningSum[mid - 1] < randomNo)) {
 				break;
 			}
 			
-			if (runningSum[mid] > ran) {
+			if (runningSum[mid] > randomNo) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
 			}
-			mid = (high + low) / 2;
 		}
 		return mid;
 	}

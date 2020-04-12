@@ -36,8 +36,9 @@ class SqrtSol {
 
 	}
 
-	private int sqrt(int x, int low, int high) {
+	private int sqrt(int number, int low, int high) {
 		int result = low;
+		
 		while (low <= high) {
 
 			int mid = (low + high) / 2;
@@ -47,11 +48,11 @@ class SqrtSol {
 				continue;
 			}
 
-			int power = mid * mid;
+			int squareValue = mid * mid;
 
-			if (power == x) {
+			if (squareValue == number) {
 				return mid;
-			} else if (x > power) {
+			} else if (squareValue < number) {
 				result = Math.max(mid, result);
 				low = mid + 1;
 			} else {

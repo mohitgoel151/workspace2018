@@ -39,6 +39,16 @@ import java.util.Set;
  * 
  */
 public class MinHeightTree {
+	
+	public static void main(String[] args) {
+		MinHeightTreeSol sol = new MinHeightTreeSol();
+		sol.execute();
+		System.out.println("Passed " + sol.getClass().getSimpleName());
+	}
+	
+}
+
+class MinHeightTreeSol {
     
     public void execute() {
         System.out.println(findMinHeightTrees(1, new int[][] {}));  //[0]
@@ -47,7 +57,6 @@ public class MinHeightTree {
         System.out.println(findMinHeightTrees(6, new int[][] {{0, 3}, {1, 3}, {2, 3}, {4, 3}, {5, 4}})); // [3,4]
         System.out.println(findMinHeightTrees(6, new int[][] {{0,1}, {0,2}, {0,3}, {3,4}, {4,5}})); //[3]
         System.out.println(findMinHeightTrees(6, new int[][] {{3,0}, {3,1}, {3,2}, {3,4}, {5,4}})); //[3,4]
-        
     }
 
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {

@@ -88,7 +88,7 @@ class WaterDistributionSolution {
 			int fromParent = getParent(parent, edge.from);
 			int toParent = getParent(parent, edge.to);
 			
-			//if both are already connected skip that edge
+			//if both are already connected, skip that edge
 			if(fromParent == toParent) {
 				continue;
 			}

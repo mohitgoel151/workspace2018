@@ -37,6 +37,7 @@ public class FlowerGarden {
 
     }
 
+    
     public int[] gardenNoAdj(int N, int[][] paths) {
 
         int[] result = new int[N];
@@ -59,7 +60,7 @@ public class FlowerGarden {
 
         boolean[] flowerAvailable = new boolean[5];
 
-        //Here we are iteratively picking gardens by garden number
+        //Here we are iteratively picking gardens by garden number (Neith4er BFS & neither DFS)
         for (int i = 1; i <= N; i++) {
             flowerAvailable = new boolean[5];
             Arrays.fill(flowerAvailable, true);
