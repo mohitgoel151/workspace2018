@@ -39,7 +39,7 @@ package com.mohit.poc.tree;
  *  
  *
  */
-public class ComoleteTreeNodeCount {
+public class CompleteTreeNodeCount {
 
 	public static void main(String[] args) {
 		
