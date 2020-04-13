@@ -14,7 +14,14 @@ import static org.junit.Assert.assertEquals;
  *
  */
 public class FrogJumps {
+	public static void main(String[] args) {
+		FrogJumpsSol obj = new FrogJumpsSol();
+		obj.execute();
+	}
+}
 
+class FrogJumpsSol {
+	
     public void execute() {
 
         assertEquals(3, getMinJumps(new int[] { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 }));
@@ -97,8 +104,7 @@ public class FrogJumps {
     }
 
     /**
-     * This method keeps track of how many steps are currently taken and how far we can go by making jump from
-     * that index.
+     * This method keeps track of how many steps are currently taken and how far we can go by making jump from that index.
      * 
      * From 0th index, max steps allowed will be value at this index. If we move beyond that index we have to
      * make atleast one jump. ........ if (steps == 0) { jumps++; If at any point we see that maxReach is last

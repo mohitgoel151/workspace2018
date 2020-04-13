@@ -47,7 +47,7 @@ class Stocks_K_TransactionsSol {
 
 		int days = prices.length;
 
-		//If transactions allwed are more than days by 2 then we just calculate prices for all day where they are more than previous day price
+		//If transactions allowed are more than days by 2 then we just calculate prices for all day where they are more than previous day price
 		if (k >= prices.length / 2) {
 			int profit = 0;
 			for (int day = 1; day < days; day++) {

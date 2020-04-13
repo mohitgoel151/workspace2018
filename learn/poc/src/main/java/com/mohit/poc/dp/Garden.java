@@ -117,6 +117,8 @@ public class Garden {
     class IntervalComparator implements Comparator<int[]> {
         //Here in comparator sort in ascending order for start and in case start are equal
         //place interval ahead which has higher end value
+    	
+    	//start early and end farther
         public int compare(int[] i1, int[] i2) {
             if(i1[0] != i2[0]) {
                 return i1[0] - i2[0]; //ascending

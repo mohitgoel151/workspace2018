@@ -80,14 +80,7 @@ public class FbSlidingWindow {
     }
 
     /**
-     * Remove one character by forwarding backPointer index now move forward till last occurrence of next
-     * character
-     * 
-     * @param map
-     * @param input
-     * @param end
-     * @param threshold
-     * @return
+     * Remove one character by forwarding backPointer index now move forward till last occurrence of next character
      */
     private int removeCharacter(Map<Character, Integer> map, String input, int end, int threshold) {
         int result = end;

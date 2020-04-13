@@ -10,6 +10,14 @@ import org.apache.commons.lang3.StringUtils;
  * https://xmruibi.gitbooks.io/interview-preparation-notes/content/Algorithm/DynamicProgram/DistinctSubsequence.html
  */
 public class DistinctSubsequences {
+	
+	public static void main(String[] args) {
+		DistinctSubsequencesSol obj = new DistinctSubsequencesSol();
+		obj.execute();
+	}
+}
+
+class DistinctSubsequencesSol {
 
     public void execute() {
         

@@ -34,7 +34,7 @@ public class LongestIncreasingSubsequence {
 	 * this time complexity can be reduced to O(nlog(n)) if we can use binary search on temp array
 	 * 
 	 * Logic :
-	 * we created temp array if same size and initialized all values with Integer.MAX_VALUE;
+	 * we created temp array of same size and initialized all values with Integer.MAX_VALUE;
 	 * 
 	 * started traversing each value in main array and checked its location in temp array.
 	 * We start iterating one by one in temp array and check if num[i] <= temp[j]

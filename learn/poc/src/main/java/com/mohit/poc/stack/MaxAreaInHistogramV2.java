@@ -34,9 +34,8 @@ public class MaxAreaInHistogramV2 {
                     int heightIndex = stack.pop();
                     int width = (stack.isEmpty()) ? i : i - stack.peek() - 1;
                     int area = pointsList.get(heightIndex) * width;
-                    if (maxArea < area) {
-                        maxArea = area;
-                    }
+                    
+                    maxArea = Math.max(maxArea, area);
                 }
                 stack.push(i);
             }

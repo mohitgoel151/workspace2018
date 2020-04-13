@@ -33,7 +33,7 @@ class SubarrayProductSol {
 		assertEquals(0, numSubarrayProductLessThanK(new int[] { 10, 5, 2, 6 }, 1));
 	}
 
-	public int numSubarrayProductLessThanK(int[] nums, int k) {
+	public int numSubarrayProductLessThanK(int[] nums, int maxThreshold) {
 
 		if (nums == null || nums.length == 0) {
 			return 0;
@@ -47,7 +47,7 @@ class SubarrayProductSol {
 			//We can add validation here to check if product after multiplication is not going beyond Int.MAX_VALUE
 			product *= nums[front];
 
-			while (front >= rear && product >= k) {
+			while (front >= rear && product >= maxThreshold) {
 				product /= nums[rear];
 				rear++;
 			}

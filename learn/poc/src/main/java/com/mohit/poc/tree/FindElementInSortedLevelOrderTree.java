@@ -37,7 +37,7 @@ import static org.junit.Assert.assertEquals;
  * Time complexity = h*h   or  logN * logN
  * 
  */
-public class SortedLevelOrderTree {
+public class FindElementInSortedLevelOrderTree {
 
 	public static void main(String[] args) {
 
