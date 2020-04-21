@@ -1,0 +1,112 @@
+/**
+ * 
+ * You have k-dimensional box denoted as (a1, a2, a3, ... , ak) where ai is the length of that i-th dimension.
+
+If we consider two box , A, (a1, a2, a3, ..., ak) , and B, (b1, b2, b3, .. bk), 
+box A can be put inside box B if there is some rotation (permutation) of the 
+dimensions of the A, let s say (a2, a1, a4, a3, ... , ak) such that
+permutation(ai) < bi for all i's.
+
+Given a list of boxes  find the maximum number of boxes that can be stacked inside each other.
+
+ * */
+ 
+ a1 -> a2 -> a3 -> a4 -> a5 
+ 
+ a1 -> a3 -> a4 -> a5 
+ 
+ a3(orientation) -> a4 -> a5
+ 
+ 
+ Class Box {
+     int[] edges; //a1 ... ak => N*N possible orientations 
+     
+ }
+ 
+ 
+ public int maxStackLength(List<Box> boxes) {
+     
+     if(boxes == null) {
+         throw new IllegalArgumentException("...");
+     }
+     
+     if(boxes.size() < 2) {
+         return 1;
+     }
+     
+     for(int boxIndex = 0; boxIndex < boxes.size(); boxIndex++) {
+         updateAsBestOrientation(boxes.get(boxIndex));
+     }
+     
+     Collections.sort(boxes, new BoxComparator());
+     
+     int result = 0;
+     
+    //Can use hashmap to cache pre-computed stacks
+    //Map<currentIndex, count> cache
+     
+     for(int boxIndex = 0; boxIndex < boxes.size(); boxIndex++) {
+        int size = getStackLength(boxes, boxIndex); //pass cache map
+        result = Math.max(result, size);
+     }
+     return result;
+}
+
+private int getStackLength(List<Box> boxes, int currentIndex) {
+    
+    
+    if(index == boxes.size()) {
+        return 0;
+    }
+    
+	//get value from cache map and if present return
+    
+    
+    int result = 0;
+    
+    for(int i = currentIndex+1; i < boxes; i++) {
+        if(compare(boxes.get(currentIndex), box.get(i)) {
+            int size = getStackLength(boxes, i) + 1;
+            result = Math.max(result, size);
+        }
+    }
+    
+    //cache.put(currentIndex, result)
+    return result;
+}
+
+
+ 
+private void updateToBestOrientation(Box box) {
+    int[] dimensions = box.getEdges();
+    Arrays.sort(dimensions); //ascending order
+}
+    
+private boolean compare(Box b1, Box b2) {
+    int edges = b1.getEdges().length;
+     
+     for(int i = 0; i < edges; i++) {
+         if(b1.getEdges().[i] < b2.getEdges().[i]) {
+             return false;
+         }
+     }
+     return true;
+} 
+}
+ 
+ class BoxComparator extends Comparator<Box> {
+     
+     public int compare(Box b1, Box b2) {
+         int edges = b1.getEdges().length;
+         
+         //descending order
+         for(int i = 0; i < edges; i++) {
+             if(b1.getEdges().[i] - b2.getEdges().[i] < 0) {
+                 return -1;
+             }
+         }
+         return 1;
+     }
+     
+     
+ }
