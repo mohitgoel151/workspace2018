@@ -54,7 +54,7 @@ class WaterDistributionSolution {
 		
 		assertEquals(10, minCostToSupplyWater(5, new int[] { 1,2,2,3,2 }, new int[][] { }));
 		
-		assertEquals(8, minCostToSupplyWater(5, new int[] { 10,20,20,30,20 }, new int[][] { { 1,2,1}, {2,3,1}, {4,5,7 } }));
+		assertEquals(39, minCostToSupplyWater(5, new int[] { 10,20,20,30,20 }, new int[][] { { 1,2,1}, {2,3,1}, {4,5,7 } }));
 
 	}
 
@@ -67,6 +67,7 @@ class WaterDistributionSolution {
 		int edgesRemaining = n;
 		
 		
+		int[] rank = new int[n+1];
 		int[] parent = new int[n+1];
 		for(int i = 0; i < parent.length; i++) {
 			parent[i] = i;
@@ -94,8 +95,14 @@ class WaterDistributionSolution {
 			}
 			
 			result += edge.weight;
-			parent[fromParent] = toParent;
 			edgesRemaining--;
+			
+			/*
+			 * If we don't want to use rank based approach, 
+			 * then we can blindly make any node as parent. (commented)
+			 */
+//			parent[fromParent] = toParent;
+			unionSets(parent, rank, fromParent, toParent);
 			
 			if(edgesRemaining == 0) {
 				break;
@@ -116,6 +123,24 @@ class WaterDistributionSolution {
 		//Also Update root node index and that index (so that next time parent check is O(1)
 		parent[node] = getParent(parent, parent[node]);
 		return parent[node];
+	}
+	
+	private void unionSets(int[] parent, int[] rank, int fromParent, int toParent) {
+		
+		if(rank[fromParent] > rank[toParent]) {
+			
+			//from parent if final parent
+			parent[toParent] = fromParent;
+		} else if (rank[fromParent] < rank[toParent]) {
+			
+			//to parent if final parent
+			parent[fromParent] = toParent;
+		} else {
+			//from parent if final parent ... hence +1 rank of fromparent
+			parent[toParent] = fromParent;
+			rank[fromParent]++;
+		}
+		
 	}
 	
 }

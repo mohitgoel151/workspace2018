@@ -51,6 +51,7 @@ class FriendCircleUnionSol {
 
 		int count = M.length;
 		int[] aux = new int[count];
+		int[] rank = new int[count];
 
 		for (int i = 0; i < count; i++) {
 			aux[i] = i;
@@ -68,7 +69,7 @@ class FriendCircleUnionSol {
 					 * Update root node pointers
 					 */
 					if (rowParent != colParent) {
-						aux[colParent] = rowParent;
+						unionSets(aux, rank, rowParent, colParent);
 					}
 				}
 			}
@@ -92,6 +93,22 @@ class FriendCircleUnionSol {
 		}
 		aux[index] = getParent(aux, aux[index]);
 		return aux[index];
+	}
+	
+	private void unionSets(int[] aux, int[] rank, int rowParent, int colParent) {
+		
+		if(rank[rowParent] > rank[colParent]) {
+			//Row parent if final parent
+			aux[colParent] = rowParent;
+		} else if (rank[rowParent] > rank[colParent]) {
+			//Column parent if final parent
+			aux[rowParent] = colParent;
+		} else {
+			//Row parent if final parent ... hence +1 rank of rowparent
+			aux[colParent] = rowParent;
+			rank[rowParent]++;
+		}
+		
 	}
 }
 
