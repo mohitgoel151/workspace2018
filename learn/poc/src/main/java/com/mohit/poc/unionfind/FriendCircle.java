@@ -100,7 +100,7 @@ class FriendCircleUnionSol {
 		if(rank[rowParent] > rank[colParent]) {
 			//Row parent if final parent
 			aux[colParent] = rowParent;
-		} else if (rank[rowParent] > rank[colParent]) {
+		} else if (rank[rowParent] < rank[colParent]) {
 			//Column parent if final parent
 			aux[rowParent] = colParent;
 		} else {

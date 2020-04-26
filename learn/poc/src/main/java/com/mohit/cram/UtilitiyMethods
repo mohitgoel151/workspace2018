@@ -17,3 +17,7 @@ Character.isLetter(char)   => check if input is letter (upper/lower case
 Character.isLetterOrDigit(char) => checks for both mentioned above
 Character.toUpperCase()
 Character.toLowerCase()
+
+
+## String Builder ##
+builder.deleteCharAt(index) ===> for last char index = builder.length() - 1
