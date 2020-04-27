@@ -41,7 +41,7 @@ class MeetingRooms2Sol {
 		}
 		
 		Arrays.sort(intervals, new IntervalSorted());
-		Queue<Integer> minQueue = new PriorityQueue<>(); //Ascending order by default
+		Queue<Integer> endTimeQueue = new PriorityQueue<>(); //Ascending order by default
 		
 		int result = 0;
 		int runningCount = 0;
@@ -50,12 +50,12 @@ class MeetingRooms2Sol {
 			if(result == 0) {
 				result++;
 				runningCount++;
-				minQueue.add(interval[1]);
+				endTimeQueue.add(interval[1]);
 				continue;
 			}
 			
 			int newStart = interval[0];
-			int earliestFinished = minQueue.peek();
+			int earliestFinished = endTimeQueue.peek();
 			
 			/*
 			 * If new start	is earlier than earliestFinished
@@ -65,9 +65,9 @@ class MeetingRooms2Sol {
 				runningCount++;
 				result = Math.max(runningCount, result);
 			} else {
-				minQueue.poll();
+				endTimeQueue.poll();
 			}
-			minQueue.add(interval[1]);
+			endTimeQueue.add(interval[1]);
 			
 		}
 		return result;
