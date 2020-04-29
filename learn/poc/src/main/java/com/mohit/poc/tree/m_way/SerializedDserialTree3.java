@@ -14,7 +14,7 @@ import java.util.Queue;
  * 
  * Looks like smallest String can be achieved via this approach.
  * 
- * Another extension of this problem can be when node can have any number of children. (Refer appraoch 2)
+ * Another extension of this problem can be when node can have any number of children. (Refer approach 2)
  *
  */
 public class SerializedDserialTree3 {
