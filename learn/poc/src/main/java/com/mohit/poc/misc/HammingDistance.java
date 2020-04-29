@@ -25,6 +25,15 @@ public class HammingDistance {
 class HammingDistanceXORSolution {
 	
     public int hammingDistance(int x, int y) {
+    	
+    	/*
+    	 * After taking XOR of x and y, we are left with 1's at the position where bits are different
+    	 * Now we just need to count the number of 1's in this.
+    	 * 
+    	 * Approach :
+    	 * 1. Shift bits using >> operator and keep on counting
+    	 * 2. below while loop approach 
+    	 */
         int xor = x ^ y, count = 0;
         
         while (xor != 0) {
