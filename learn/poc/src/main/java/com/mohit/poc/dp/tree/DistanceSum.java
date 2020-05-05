@@ -77,13 +77,13 @@ class DistanceSumSol {
 	/**
 	 *	Traverse as post-order DFS and compute node count in subtrees and well as distance sum for its subtrees 
 	 */
-	private void doDFS(int node, int parent, int[] cc, int[] sd, Map<Integer, Set<Integer>> conns) {
+	private void doDFS(int node, int parent, int[] childCount, int[] sumDistance, Map<Integer, Set<Integer>> conns) {
 
 		for (int adjacent : conns.get(node)) {
 			if (adjacent != parent) {
-				doDFS(adjacent, node, cc, sd, conns);
-				cc[node] += cc[adjacent];
-				sd[node] += cc[adjacent] + sd[adjacent];
+				doDFS(adjacent, node, childCount, sumDistance, conns);
+				childCount[node] += childCount[adjacent];
+				sumDistance[node] += childCount[adjacent] + sumDistance[adjacent];
 			}
 		}
 	}
@@ -101,26 +101,26 @@ class DistanceSumSol {
 	}
 
 	private Map<Integer, Set<Integer>> getConnections(int[][] edges) {
-		Map<Integer, Set<Integer>> connections = new HashMap<>();
+		Map<Integer, Set<Integer>> connectionsMap = new HashMap<>();
 
 		for (int[] edge : edges) {
 			int parent = edge[0];
 			int child = edge[1];
 
-			Set<Integer> children = connections.get(parent);
-			if (children == null) {
-				children = new HashSet<>();
-				connections.put(parent, children);
+			Set<Integer> connections = connectionsMap.get(parent);
+			if (connections == null) {
+				connections = new HashSet<>();
+				connectionsMap.put(parent, connections);
 			}
-			children.add(child);
+			connections.add(child);
 
-			children = connections.get(child);
-			if (children == null) {
-				children = new HashSet<>();
-				connections.put(child, children);
+			connections = connectionsMap.get(child);
+			if (connections == null) {
+				connections = new HashSet<>();
+				connectionsMap.put(child, connections);
 			}
-			children.add(parent);
+			connections.add(parent);
 		}
-		return connections;
+		return connectionsMap;
 	}
 }

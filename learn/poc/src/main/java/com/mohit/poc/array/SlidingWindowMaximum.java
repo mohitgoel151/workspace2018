@@ -32,6 +32,7 @@ public class SlidingWindowMaximum {
         
         int[] result = new int[input.length - k + 1];
         
+        //Hold index of value which is greater
         List<Integer> tempArray = new ArrayList<>(k);
         
         for(int i = 0; i < k; i++) {

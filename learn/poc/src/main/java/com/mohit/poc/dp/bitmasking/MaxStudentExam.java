@@ -33,7 +33,9 @@ public class MaxStudentExam {
 		assertEquals(31, sol.maxStudents(input));
 		
 		input = new String[][] {
-			{"#",".","#","#",".","#"},{".","#","#","#","#","."},{"#",".","#","#",".","#"}
+			{"#",".","#","#",".","#"},
+			{".","#","#","#","#","."},
+			{"#",".","#","#",".","#"}
 		};
 		assertEquals(4, sol.maxStudents(input));
 	}

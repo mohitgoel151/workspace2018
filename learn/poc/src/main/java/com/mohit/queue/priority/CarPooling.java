@@ -35,7 +35,7 @@ public class CarPooling {
 
     public boolean carPooling(int[][] trips, int capacity) {
 
-        int tempCapacity = 0;
+        int seatsOccupied = 0;
 
         Arrays.sort(trips, new TripComparator());
         Queue<int[]> queue = new PriorityQueue<>(new DropComparator());
@@ -45,12 +45,12 @@ public class CarPooling {
 
         	//While considering each trip check if there any trip in queue which are already ended and update capacity accordingly
             while (!queue.isEmpty() && queue.peek()[2] <= trip[1]) {
-                tempCapacity -= queue.poll()[0];
+                seatsOccupied -= queue.poll()[0];
             }
             queue.add(trip);
-            tempCapacity += trip[0];
+            seatsOccupied += trip[0];
 
-            if (tempCapacity > capacity) {
+            if (seatsOccupied > capacity) {
                 return false;
             }
         }

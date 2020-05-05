@@ -38,6 +38,7 @@ class SmallestRectanglewithPointsSol {
 		});
 		HashMap<Integer, HashSet<Integer>> xMap = new HashMap<>();
 		HashMap<Integer, HashSet<Integer>> yMap = new HashMap<>();
+		
 		for (int i = 0; i < points.length; i++) {
 			int x = points[i][0];
 			int y = points[i][1];
@@ -56,6 +57,7 @@ class SmallestRectanglewithPointsSol {
 			}
 			setY.add(x);
 		}
+		
 		int result = Integer.MAX_VALUE;
 		for (int i = 0; i < points.length - 1; i++) {
 			for (int j = i + 1; j < points.length; j++) {

@@ -140,6 +140,10 @@ class ShipCapacitySol {
             	tempCapacity = weights[i];
                 remainingDays--;
             }
+            
+            if(remainingDays < 0) {
+            	return -1;
+            }
         }
         return remainingDays;
     }

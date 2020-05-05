@@ -72,6 +72,7 @@ class TextJustificationSol {
 		// one has min value
 		int minCost[] = new int[words.length];
 		int result[] = new int[words.length];
+		
 		for (int i = words.length - 1; i >= 0; i--) {
 			minCost[i] = cost[i][words.length - 1];
 			result[i] = words.length;

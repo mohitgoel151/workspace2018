@@ -81,8 +81,5 @@ public class DecodeString2 {
 		
 		return i;
 	}
-    
-    
-    
 
 }

@@ -45,6 +45,7 @@ class SortNumbersSol {
     }
     
     private int moveLeft(int[] nums, int left) {
+    	// --> Movement
         while(left < nums.length && nums[left] == 0) {
             left++;
         }
@@ -52,7 +53,7 @@ class SortNumbersSol {
     }
     
     private int moveRight(int[] nums, int right) {
-        
+        //  <--  Movement
         while(right >= 0 && nums[right] == 2) {
             right--;
         }

@@ -1,0 +1,110 @@
+Please use this Google doc during your interview (your interviewer will see what you write here). To free your hands for typing, we recommend using a headset or speakerphone....
+
+Implement Timer queue on top of single hardware timer
+Setting hardware timer while timer is running will overwrite the timer
+Only one hardware timer can run at any time
+Arbitrary number of timers can be in the queue with varied time values. 
+
+Time t=0   addtimer(cb1,5)
+t=1        addtimer(cb2,3)
+t=2        addtimer(cb4,20)  ...22
+t=4        addtimer(cb3,10) … 14  (cb3 will be removed)
+
+//Java
+/** GIVEN! This is the API you are programming against. */
+class BasicTimer {
+  /**
+   * Schedules call to callback after waitMsec.
+   * Cancels all prior scheduled callbacks.
+   * Returns immediately.
+   */
+  public static void setTimer(Runnable callback, int waitMsec);
+ 
+  /**
+   * Returns system time in milliseconds.
+   */
+  public static long getTime();
+}
+ 
+/** Please implement this */
+class MultiTimer {
+  /**
+   * Schedules call to callback after waitMsec.
+   * Does not impact prior scheduled callbacks.
+   * Returns immediately.
+   */
+
+  Queue<RunnableTask> taskQueue = new PriorityQueue<>(new RunnableTaskComparator());
+
+
+
+
+public static void scheduleNext() {
+
+
+}
+
+
+  public static void addTimer(Runnable callback, int waitMsec) {
+    if(callback == null || waitMsec < 0) {
+        throw new IllegalArgumentException(“....”);
+    }
+
+    while(!queue.isEmpty()) {
+        RunnableTask top = queue.peek();
+        if(top.triggerTime < BasicTimer.getTime()) {
+            queue.pop();
+}
+    }
+
+    long currentTime = BasicTimer.getTime();
+    long triggerTime = waitMsec + currentTime;
+
+MultiTimeTask mTask = new MultiTimeTask(this, callback, 
+
+    RunnableTask task = new RunnableTask(callback, triggerTime);
+taskQueue.add(task);
+    
+RunnableTask top = queue.peek();
+
+    BasicTimer.setTimer(top.callback, top.triggerTime - BasicTimer.getTime());
+
+
+    
+
+    
+ }
+
+}
+
+class MultiTimeTask implement Runnable {
+    private Object obj;
+    private Runnable callback;
+    private long triggerTime;
+
+    public void run () {
+        callback.run();
+    }
+}
+
+
+class RunnableTask {
+
+    private Runnable callback;
+    private long triggerTime; 
+
+}
+
+class RunnableTaskComparator implements Comparator<RunnableTask> {
+
+    @Override
+    public int compare(RunnableTask t1, RunnableTask t2) {
+        return t1.triggerTime - t2.triggerTime;
+    }
+
+}
+                
+
+
+        
+

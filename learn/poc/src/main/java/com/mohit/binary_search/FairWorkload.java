@@ -111,6 +111,10 @@ class FairWorkloadSol {
                 work = folders[i];
                 remainingWorkers--;
             }
+            
+            if(remainingWorkers < 0) {
+            	return -1;
+            }
         }
         return remainingWorkers;
     }

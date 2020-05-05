@@ -54,7 +54,7 @@ class DuplicatesInArraySol {
 				int valueInAux = arr[tempIndex];
 
 				if (valueInAux <= 0) {
-					arr[tempIndex] = valueInAux - 1;
+					//arr[tempIndex] = valueInAux - 1;
 				} else {
 					arr[i] = valueInAux;
 					arr[tempIndex] = 0;

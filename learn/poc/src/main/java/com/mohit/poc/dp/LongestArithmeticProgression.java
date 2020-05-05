@@ -32,23 +32,23 @@ public class LongestArithmeticProgression {
         Map<Integer, Integer>[] map = new HashMap[A.length];
         int result = 0;
 
-        for (int j = 0; j < A.length; j++) {
+        for (int outer = 0; outer < A.length; outer++) {
         	
-            map[j] = new HashMap<>();
-            for (int i = 0; i < j; i++) {
-                int diff = A[j] - A[i];
+            map[outer] = new HashMap<>();
+            for (int inner = 0; inner < outer; inner++) {
+                int diff = A[outer] - A[inner];
                 
                 //check how many elements are already computed at i for same diff value
-                int count = map[i].getOrDefault(diff, 1);
+                int count = map[inner].getOrDefault(diff, 1);
                 int newCount = count + 1;
                 
                 //check how many elements are already computed at j for same diff value
-                int existingCount = map[j].getOrDefault(diff, 0);
+                int existingCount = map[outer].getOrDefault(diff, 0);
 
                 //Pick max of these 2
                 int newValue = Math.max(existingCount, newCount);
                 
-                map[j].put(diff, newValue);
+                map[outer].put(diff, newValue);
                 result = Math.max(result, newValue);
             }
         }

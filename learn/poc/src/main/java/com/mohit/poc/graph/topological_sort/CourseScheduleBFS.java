@@ -42,7 +42,7 @@ public class CourseScheduleBFS {
         
         System.out.println(findOrder(9, new int[][] {
             {4, 3}, {4, 0},
-            {3, 5}, {0, 5},{0,7},
+            {3, 5}, {0, 5}, {0,7},
             {5, 6}, {7, 6}, {6,8}
         })); 
         // 1,2, 8,6,5,7,3,0,4

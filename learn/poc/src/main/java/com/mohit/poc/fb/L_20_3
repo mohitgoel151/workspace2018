@@ -1,0 +1,94 @@
+/*  
+  
+        alphabet = ['c', 'b', 'a', 't'] //ascending
+        words =    ["cca", "cc"] ==> false
+        words =    ["cat", "bat", "tab"] ==> true
+        words =    ["cc", "cca", "cba"]  ==> true
+  */
+
+t -> {}   // 3
+a -> t    // 2
+b -> a, t // 1
+c -> b, a, t // 0
+
+
+public boolean isAscending(List<String> words, List<Character> alphabetList) {
+
+  //Validations
+  if(words == null || words.size() < 1 || alphabetList == null || alphabetList.size() < 1) {
+    return false; /// throw illegalArgumentException
+  }
+
+  Map<Character, Set<Character>> characterMap = createMap(alphabetList);
+  
+
+  for(int index = 1; index < words.size(); index++) {
+    String lastWord = words(index-1);
+    String currenrWord = words(index);
+    
+    if(isValidSequence(lastWord, currenrWord) == fasle) {
+      return false;
+    }
+  
+  }
+  return true;
+}
+
+private boolean isValidSequence(String last, String current, Map<Character, Set<Character>> charMap) {
+  
+  int minLength = Math.min(last.length(), current.length());
+  
+  for(int index = 0; index < minLength; index++) {
+  
+    char lastWordChar = last.charAt(index);
+    char currentWordChar = last.charAt(index);
+    
+    if (lastWordChar == currentWordChar) {
+      continue;
+    }
+    
+    if(!charMap.get(lastWordChar).contains(currentWordChar)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  
+  if(minLength != last.length()) {
+    return false;
+  }
+  
+  return true;
+}
+
+private Map<Character, Set<Character>> createMap(List<Character> alphabetList) {
+
+  
+}
+
+
+/*
+Ex 1
+
+Vertices: A, B, C
+
+Edges: A-B, B-C, C-A
+
+{A, B} {C}
+
+==> False
+
+Ex 2
+
+Vertices: A, B, C, D
+
+Edges: A-B, B-C, C-D, D-A
+
+{A, C} {B, D}
+
+==> True
+
+*/
+
+a -> b, d
+b -> a. c
